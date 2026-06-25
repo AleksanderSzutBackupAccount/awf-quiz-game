@@ -1,3 +1,18 @@
+<script setup lang="ts">
+import { useProfileStore } from '~/stores/profile'
+import { useNameModal } from '~/composables/useNameModal'
+
+const profile = useProfileStore()
+const { open, dismissed } = useNameModal()
+
+// Auto-pokaż gdy zalogowany user nie ma jeszcze nazwy i jej nie pominął.
+const showName = computed(() => open.value || (profile.loaded && !profile.displayName && !dismissed.value))
+function closeName() {
+  open.value = false
+  dismissed.value = true
+}
+</script>
+
 <template>
   <div class="layout">
     <AppHeader />
@@ -10,6 +25,7 @@
         <span class="dim">Materiały opracowane na podstawie zagadnień egzaminacyjnych.</span>
       </div>
     </footer>
+    <NameModal v-if="showName" @close="closeName" />
   </div>
 </template>
 
