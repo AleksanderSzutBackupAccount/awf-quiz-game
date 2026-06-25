@@ -31,6 +31,7 @@ interface ProgressState {
   mastery: Record<string, { correct: number; seen: number }>
   history: QuizRun[]
   xp: number
+  xpBySpec: Record<string, number>
   celebratedLevels: string[]
   hydrated: boolean
   userId: string | null
@@ -41,6 +42,7 @@ export const useProgressStore = defineStore('progress', {
     mastery: {},
     history: [],
     xp: 0,
+    xpBySpec: { hotelarstwo: 0, przygodowa: 0 },
     celebratedLevels: [],
     hydrated: false,
     userId: null,
@@ -65,6 +67,7 @@ export const useProgressStore = defineStore('progress', {
     },
     xpIntoRank: (s) => s.xp % XP_PER_LEVEL,
     xpForNextRank: () => XP_PER_LEVEL,
+    xpForSpec: (s) => (spec: SpecializationId) => s.xpBySpec[spec] ?? 0,
     isLevelCelebrated: (s) => (levelId: string) => s.celebratedLevels.includes(levelId),
   },
   actions: {
@@ -77,6 +80,7 @@ export const useProgressStore = defineStore('progress', {
           this.mastery = parsed.mastery ?? {}
           this.history = parsed.history ?? []
           this.xp = parsed.xp ?? 0
+          this.xpBySpec = parsed.xpBySpec ?? { hotelarstwo: 0, przygodowa: 0 }
           this.celebratedLevels = parsed.celebratedLevels ?? []
         }
       } catch {
@@ -91,6 +95,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
       this.celebratedLevels = []
       this.hydrated = false
       this.hydrate()
@@ -101,6 +106,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
       this.celebratedLevels = []
       this.hydrated = false
     },
@@ -112,16 +118,18 @@ export const useProgressStore = defineStore('progress', {
           mastery: this.mastery,
           history: this.history.slice(-50),
           xp: this.xp,
+          xpBySpec: this.xpBySpec,
           celebratedLevels: this.celebratedLevels,
         })
       )
     },
-    recordAnswer(topicId: string, correct: boolean) {
+    recordAnswer(topicId: string, correct: boolean, spec?: SpecializationId) {
       const m = this.mastery[topicId] ?? { correct: 0, seen: 0 }
       m.seen += 1
       if (correct) {
         m.correct += 1
         this.xp += XP_PER_CORRECT
+        if (spec) this.xpBySpec[spec] = (this.xpBySpec[spec] ?? 0) + XP_PER_CORRECT
       }
       this.mastery[topicId] = m
       this.persist()
@@ -131,10 +139,11 @@ export const useProgressStore = defineStore('progress', {
       this.persist()
     },
     // Replace state from a (merged) snapshot — used by cloud sync.
-    applySnapshot(s: Partial<Pick<ProgressState, 'mastery' | 'history' | 'xp' | 'celebratedLevels'>>) {
+    applySnapshot(s: Partial<Pick<ProgressState, 'mastery' | 'history' | 'xp' | 'xpBySpec' | 'celebratedLevels'>>) {
       if (s.mastery) this.mastery = s.mastery
       if (s.history) this.history = s.history
       if (typeof s.xp === 'number') this.xp = s.xp
+      if (s.xpBySpec) this.xpBySpec = s.xpBySpec
       if (s.celebratedLevels) this.celebratedLevels = s.celebratedLevels
       this.persist()
     },
@@ -148,6 +157,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
       this.celebratedLevels = []
       this.persist()
     },
