@@ -48,9 +48,9 @@ export const partC1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Zakaz dyskryminacji i mobbingu należy do obowiązków pracodawcy.',
-        correct: true,
-        explain: 'Pracodawca ma obowiązek szanować godność pracownika, co obejmuje zakaz dyskryminacji i mobbingu.',
+        q: 'Zakaz dyskryminacji i mobbingu należy do obowiązków pracownika.',
+        correct: false,
+        explain: 'To obowiązek pracodawcy — musi on szanować godność pracownika oraz przeciwdziałać dyskryminacji i mobbingowi.',
       },
       {
         type: 'flash',
@@ -468,9 +468,9 @@ export const partC1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Bliskość gór, jezior i lasów to przykład czynnika środowiskowego determinującego zachowanie wolnoczasowe.',
-        correct: true,
-        explain: 'Walory naturalne, takie jak bliskość gór, jezior i lasów, zaliczane są do czynników środowiskowych.',
+        q: 'Bliskość gór, jezior i lasów to przykład czynnika ekonomicznego determinującego zachowanie wolnoczasowe.',
+        correct: false,
+        explain: 'Walory naturalne to czynniki środowiskowe, a nie ekonomiczne; do ekonomicznych zalicza się np. dochód czy ceny usług.',
       },
       {
         type: 'flash',

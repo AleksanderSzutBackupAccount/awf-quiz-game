@@ -223,9 +223,9 @@ export const partC2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Przewodzenie obejmuje motywowanie zespołu, komunikację i podejmowanie decyzji.',
-        correct: true,
-        explain: 'Przewodzenie dotyczy motywowania i prowadzenia zespołu, w tym komunikacji, rozwiązywania problemów i podejmowania decyzji.'
+        q: 'Motywowanie zespołu, komunikacja i podejmowanie decyzji należą do funkcji planowania.',
+        correct: false,
+        explain: 'To elementy przewodzenia, a nie planowania; planowanie dotyczy wyznaczania celów i sposobów ich osiągnięcia.'
       },
       {
         type: 'flash',
@@ -352,9 +352,9 @@ export const partC2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Globalny zasięg i dostępność oferty 24/7 to jedno ze znaczeń e-marketingu w turystyce.',
-        correct: true,
-        explain: 'Globalny zasięg - prezentowanie ofert na całym świecie przez całą dobę - to jedna z kluczowych zalet e-marketingu.'
+        q: 'Ograniczony, lokalny zasięg oferty to jedna z głównych zalet e-marketingu w turystyce.',
+        correct: false,
+        explain: 'Przeciwnie — atutem e-marketingu jest globalny zasięg i dostępność oferty 24/7, a nie ograniczenie do rynku lokalnego.'
       },
       {
         type: 'flash',
@@ -475,9 +475,9 @@ export const partC2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Wadą badań wtórnych może być brak aktualności i niepewna jakość danych.',
-        correct: true,
-        explain: 'Dane wtórne bywają stare i zebrane w innym celu, a brak kontroli nad procesem ich zbierania powoduje niepewną jakość.'
+        q: 'Zaletą badań wtórnych jest zawsze pełna aktualność i pewna jakość danych.',
+        correct: false,
+        explain: 'To wada, nie zaleta — dane wtórne bywają nieaktualne i zebrane w innym celu, więc ich jakość jest niepewna.'
       },
       {
         type: 'flash',
@@ -534,9 +534,9 @@ export const partC2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Rozwój turystyki może prowadzić do komercjalizacji i zanikania autentyczności kultury lokalnej.',
-        correct: true,
-        explain: 'Turystyka bywa źródłem konfliktów społecznych oraz komercjalizacji - kultura "robi się na pokaz", co osłabia jej autentyczność.'
+        q: 'Rozwój turystyki zawsze wzmacnia autentyczność kultury lokalnej i nie niesie żadnych zagrożeń.',
+        correct: false,
+        explain: 'Turystyka może też komercjalizować kulturę i osłabiać jej autentyczność (kultura „robi się na pokaz”) oraz wywoływać konflikty społeczne.'
       },
       {
         type: 'flash',

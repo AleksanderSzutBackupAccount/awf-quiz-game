@@ -96,9 +96,9 @@ export const partC3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Wykres kołowy najlepiej nadaje się do pokazania procentowego udziału dochodów poszczególnych lat w dochodzie całkowitym.',
-        correct: true,
-        explain: 'Wykres kołowy (pierścieniowy) służy do obrazowania proporcji, np. udziału dochodu z każdego roku w sumie za 5 lat.'
+        q: 'Wykres liniowy najlepiej nadaje się do pokazania procentowego udziału dochodów poszczególnych lat w dochodzie całkowitym.',
+        correct: false,
+        explain: 'Do proporcji (udziału w całości) służy wykres kołowy; wykres liniowy obrazuje zmiany wartości w czasie, a nie udziały procentowe.'
       },
       {
         type: 'flash',
@@ -198,9 +198,9 @@ export const partC3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Pozycje izolowane to takie, w których ruch odbywa się w jednym stawie i angażuje jedną grupę mięśniową.',
-        correct: true,
-        explain: 'W pozycjach izolowanych ruch odbywa się w jednym stawie i angażuje jedną grupę mięśniową przy minimalnym udziale pozostałych mięśni.'
+        q: 'Pozycje izolowane to takie, w których ruch odbywa się w wielu stawach jednocześnie i angażuje wiele grup mięśniowych.',
+        correct: false,
+        explain: 'Odwrotnie — w pozycjach izolowanych ruch odbywa się w jednym stawie i angażuje jedną grupę mięśniową; praca wielu stawów cechuje ćwiczenia złożone (wielostawowe).'
       },
       {
         type: 'flash',
@@ -367,9 +367,9 @@ export const partC3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Badania wtórne polegają na wykorzystaniu już istniejących danych, raportów i statystyk.',
-        correct: true,
-        explain: 'Badania wtórne opierają się na istniejących danych i publikacjach, w przeciwieństwie do badań pierwotnych zbieranych samodzielnie.'
+        q: 'Badania wtórne polegają na samodzielnym zbieraniu nowych danych w terenie, np. przez ankiety.',
+        correct: false,
+        explain: 'To opis badań pierwotnych; badania wtórne opierają się na już istniejących danych, raportach i statystykach.'
       },
       {
         type: 'flash',

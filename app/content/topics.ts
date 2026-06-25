@@ -145,10 +145,10 @@ const core: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'W piramidzie Maslowa potrzeba samorealizacji znajduje się na najwyższym poziomie.',
-        correct: true,
+        q: 'W piramidzie Maslowa potrzeby fizjologiczne znajdują się na najwyższym poziomie.',
+        correct: false,
         explain:
-          'Maslow uporządkował potrzeby od podstawowych (fizjologiczne) do najwyższych (samorealizacja).',
+          'Na szczycie piramidy jest samorealizacja, a potrzeby fizjologiczne stanowią jej podstawę (najniższy poziom).',
       },
       {
         type: 'flash',
@@ -280,10 +280,10 @@ const core: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Błonnik nierozpuszczalny przyspiesza pasaż jelitowy i zapobiega zaparciom.',
-        correct: true,
+        q: 'Błonnik rozpuszczalny przyspiesza pasaż jelitowy i zapobiega zaparciom.',
+        correct: false,
         explain:
-          'Działa jak „szczotka”, zwiększa objętość stolca i przyspiesza pasaż jelitowy.',
+          'Pasaż przyspiesza błonnik nierozpuszczalny (działa jak „szczotka”); rozpuszczalny pęcznieje, spowalnia trawienie i obniża cholesterol.',
       },
       {
         type: 'flash',
@@ -615,10 +615,10 @@ const core: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Weryfikacja, czy usługi z minibaru zostały doliczone do rachunku, należy do check-out.',
-        correct: true,
+        q: 'Weryfikacja, czy usługi z minibaru zostały doliczone do rachunku, należy do check-in.',
+        correct: false,
         explain:
-          'Weryfikacja opłat za usługi dodatkowe to krok procedury wymeldowania (check-out).',
+          'To krok wymeldowania (check-out), a nie zameldowania — przy check-out rozlicza się opłaty za usługi dodatkowe.',
       },
       {
         type: 'flash',

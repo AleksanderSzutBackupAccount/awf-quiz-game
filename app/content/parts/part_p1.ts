@@ -88,9 +88,9 @@ export const partP1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Zarządzanie projektami turystycznymi składa się z pięciu głównych etapów.',
-        correct: true,
-        explain: 'Są to: inicjacja, planowanie, realizacja, monitorowanie i kontrola oraz zamknięcie.'
+        q: 'Zarządzanie projektami turystycznymi składa się z trzech głównych etapów.',
+        correct: false,
+        explain: 'Etapów jest pięć: inicjacja, planowanie, realizacja, monitorowanie i kontrola oraz zamknięcie.'
       },
       {
         type: 'flash',
@@ -339,9 +339,9 @@ export const partP1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Szkocki formularz oceny atrakcji ocenia sześć głównych części atrakcji na jedenastostopniowej skali od 0 do 10.',
-        correct: true,
-        explain: 'Formularz Scottish Tourist Board dotyczy wstępu, wejścia, prezentacji tematyki, gastronomii, sklepu i toalet, ocenianych na skali 0-10.'
+        q: 'Szkocki formularz oceny atrakcji ocenia sześć głównych części atrakcji na skali od 1 do 5.',
+        correct: false,
+        explain: 'Formularz Scottish Tourist Board stosuje jedenastostopniową skalę od 0 do 10, a nie skalę 1-5.'
       },
       {
         type: 'flash',
@@ -394,9 +394,9 @@ export const partP1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Skala SAC Szwajcarskiego Klubu Alpinistycznego wykorzystuje oznaczenia od T1 do T6.',
-        correct: true,
-        explain: 'T1 to trasy bardzo łatwe, a T6 to najtrudniejsze szlaki alpejskie dla doświadczonych wspinaczy.'
+        q: 'Skala SAC Szwajcarskiego Klubu Alpinistycznego wykorzystuje oznaczenia od T1 do T10.',
+        correct: false,
+        explain: 'Skala SAC obejmuje sześć stopni — od T1 (bardzo łatwe) do T6 (najtrudniejsze szlaki alpejskie), nie sięga T10.'
       },
       {
         type: 'flash',
@@ -512,9 +512,9 @@ export const partP1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Raja Ampat w Indonezji to obszar pozwalający przede wszystkim na nurkowanie i żeglarstwo.',
-        correct: true,
-        explain: 'Raja Ampat to rajski archipelag sprzyjający wodnym formom turystyki przygodowej, w szczególności nurkowaniu i żeglarstwu.'
+        q: 'Raja Ampat w Indonezji to obszar pustynny, sprzyjający przede wszystkim wspinaczce i trekkingowi wysokogórskiemu.',
+        correct: false,
+        explain: 'Raja Ampat to morski archipelag sprzyjający wodnym formom turystyki — głównie nurkowaniu i żeglarstwu, a nie wspinaczce na pustyni.'
       },
       {
         type: 'flash',

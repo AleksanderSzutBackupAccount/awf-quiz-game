@@ -120,9 +120,9 @@ export const partC5: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Podaż turystyczna charakteryzuje się ograniczoną elastycznością, bo niektóre usługi trudno szybko dostosować.',
-        correct: true,
-        explain: 'Liczby miejsc w hotelu czy samolocie nie da się szybko zwiększyć, dlatego podaż jest mało elastyczna w krótkim czasie.'
+        q: 'Podaż turystyczna charakteryzuje się bardzo dużą elastycznością, bo usługi można natychmiast dostosować do popytu.',
+        correct: false,
+        explain: 'Przeciwnie — podaż turystyczna jest mało elastyczna w krótkim czasie; liczby miejsc w hotelu czy samolocie nie da się szybko zwiększyć.'
       },
       {
         type: 'flash',
@@ -348,9 +348,9 @@ export const partC5: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Rezerwaty biosfery UNESCO funkcjonują w ramach programu "Człowiek i Biosfera" (MAB) i łączą ochronę przyrody ze zrównoważonym rozwojem.',
-        correct: true,
-        explain: 'Polska ma 11 takich rezerwatów działających w ramach programu MAB.'
+        q: 'Rezerwaty biosfery UNESCO funkcjonują w ramach konwencji ramsarskiej i służą wyłącznie ochronie obszarów wodno-błotnych.',
+        correct: false,
+        explain: 'Rezerwaty biosfery działają w ramach programu „Człowiek i Biosfera” (MAB) i łączą ochronę przyrody ze zrównoważonym rozwojem; konwencja ramsarska dotyczy odrębnie obszarów wodno-błotnych.'
       },
       {
         type: 'flash',
@@ -409,9 +409,9 @@ export const partC5: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Biebrzański Park Narodowy jest największym parkiem narodowym w Polsce, a jego sercem jest rzeka Biebrza.',
-        correct: true,
-        explain: 'Biebrzański PN to największy park narodowy, obejmuje rozległe bagna i torfowiska będące siedliskiem wielu gatunków ptaków.'
+        q: 'Tatrzański Park Narodowy jest największym parkiem narodowym w Polsce.',
+        correct: false,
+        explain: 'Największy jest Biebrzański Park Narodowy (rozległe bagna i torfowiska będące siedliskiem wielu ptaków), a nie Tatrzański.'
       },
       {
         type: 'flash',
@@ -464,9 +464,9 @@ export const partC5: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Zamek Cesarski w Poznaniu zbudowano w stylu neoromańskim, co miało nawiązywać do tradycji Świętego Cesarstwa Rzymskiego i legitymizować pruskie panowanie.',
-        correct: true,
-        explain: 'Franz Schwechten zaprojektował Zamek Cesarski (1910) w stylu neoromańskim z celem ideologicznym - nawiązaniem do tradycji cesarskiej.'
+        q: 'Zamek Cesarski w Poznaniu zbudowano w stylu gotyckim, wzorując się na średniowiecznych katedrach.',
+        correct: false,
+        explain: 'Zamek Cesarski (proj. Franz Schwechten, 1910) powstał w stylu neoromańskim, by nawiązać do tradycji cesarskiej i legitymizować pruskie panowanie — nie w gotyku.'
       },
       {
         type: 'flash',
@@ -525,9 +525,9 @@ export const partC5: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Władztwo planistyczne oznacza, że to samorząd gminny ma autonomiczne prawo i obowiązek kształtowania polityki przestrzennej na swoim obszarze.',
-        correct: true,
-        explain: 'Władztwo planistyczne gminy to suwerenność samorządu w decydowaniu o przeznaczeniu gruntów.'
+        q: 'Władztwo planistyczne oznacza, że to wojewoda (administracja rządowa) decyduje o przeznaczeniu gruntów w gminie.',
+        correct: false,
+        explain: 'Władztwo planistyczne przysługuje samorządowi gminnemu — to gmina, nie wojewoda, autonomicznie decyduje o polityce przestrzennej na swoim obszarze.'
       },
       {
         type: 'flash',

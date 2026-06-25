@@ -113,10 +113,10 @@ export const partH1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Czarter sprawdza się szczególnie przy grupach młodzieżowych i szkolnych.',
-        correct: true,
+        q: 'Czarter sprawdza się szczególnie przy małych, niepewnych grupach indywidualnych.',
+        correct: false,
         explain:
-          'Czarter (całość usługi na własne ryzyko) jest opłacalny przy dużych, pewnych grupach — np. szkolnych.',
+          'Czarter (całość usługi na własne ryzyko) opłaca się przy dużych, pewnych grupach, np. szkolnych — a nie przy małych grupach indywidualnych.',
       },
       {
         type: 'flash',

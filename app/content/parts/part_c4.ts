@@ -202,9 +202,9 @@ export const partC4: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Doroslym zaleca sie 7-9 godzin snu na dobe.',
-        correct: true,
-        explain: 'Dla doroslych zalecane jest 7-9 h snu, a dla mlodziezy 8-10 h dziennie.'
+        q: 'Doroslym zaleca sie 4-5 godzin snu na dobe.',
+        correct: false,
+        explain: 'Zalecane jest 7-9 h snu dla doroslych (a dla mlodziezy 8-10 h); 4-5 h to zbyt malo dla zdrowia.'
       },
       {
         type: 'flash',
@@ -385,9 +385,9 @@ export const partC4: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Cecha charakterystyczna sredniowiecza byl teocentryzm.',
-        correct: true,
-        explain: 'Sredniowiecze cechowal teocentryzm - przekonanie, ze Bog jest osrodkiem i celem wszystkiego.'
+        q: 'Cecha charakterystyczna sredniowiecza byl antropocentryzm.',
+        correct: false,
+        explain: 'Sredniowiecze cechowal teocentryzm (Bog osrodkiem wszystkiego); antropocentryzm — czlowiek w centrum — to cecha renesansu.'
       },
       {
         type: 'flash',

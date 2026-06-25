@@ -103,9 +103,9 @@ export const partP2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'W metodzie 3 krzesel Disneya wystepuja role: marzyciel, realista i krytyk.',
-        correct: true,
-        explain: 'Te trzy rozne punkty widzenia uosabiaja marzyciel, realista i krytyk, co pozwala kompleksowo zbadac projekt.'
+        q: 'W metodzie 3 krzesel Disneya wystepuja role: marzyciel, inwestor i sprzedawca.',
+        correct: false,
+        explain: 'Trzy role w metodzie Disneya to marzyciel, realista i krytyk — nie inwestor czy sprzedawca.'
       },
       {
         type: 'flash',
@@ -223,9 +223,9 @@ export const partP2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Hiking to zazwyczaj jednodniowa piesza wedrowka, ktora nie wymaga specjalnego przygotowania fizycznego.',
-        correct: true,
-        explain: 'Hiking to krotkie, zazwyczaj jednodniowe wyprawy na wyznaczonych szlakach, ktore nie wymagaja specjalnego przygotowania ani dlugotrwalego treningu.'
+        q: 'Hiking to zazwyczaj wielotygodniowa, wymagajaca wyprawa, ktora wymaga dlugotrwalego treningu i specjalistycznego sprzetu.',
+        correct: false,
+        explain: 'To raczej opis dlugich wypraw/trekkingu; hiking to krotkie, zwykle jednodniowe wedrowki na wyznaczonych szlakach, bez specjalnego przygotowania.'
       },
       {
         type: 'flash',
@@ -407,9 +407,9 @@ export const partP2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Ksenofobia to lek przed poznawaniem nowych, nieznanych osob, ktory objawia sie izolacja i niecheicia.',
-        correct: true,
-        explain: 'Ksenofobia jest definiowana jako lek przed poznawaniem nowych nieznanych osob, objawiajacy sie izolacja i ostentacyjna niecheicia.'
+        q: 'Ksenofilia to lek przed poznawaniem nowych, nieznanych osob, ktory objawia sie izolacja i niecheicia.',
+        correct: false,
+        explain: 'Taki lek to ksenofobia; ksenofilia oznacza przeciwnie — sympatie i upodobanie do tego, co obce i nieznane.'
       },
       {
         type: 'flash',
@@ -471,9 +471,9 @@ export const partP2: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Ryzyko definiuje sie jako mozliwosc wystapienia zdarzenia, ktore wplynie negatywnie na cele projektu.',
-        correct: true,
-        explain: 'Taka jest definicja ryzyka: mozliwosc wystapienia zdarzenia, ktore wplynie negatywnie na cele projektu.'
+        q: 'Ryzyko definiuje sie jako zdarzenie, ktore na pewno wystapi i zawsze pozytywnie wplynie na cele projektu.',
+        correct: false,
+        explain: 'Ryzyko to mozliwosc (niepewnosc) wystapienia zdarzenia wplywajacego negatywnie na cele projektu, a nie zdarzenie pewne i korzystne.'
       },
       {
         type: 'flash',

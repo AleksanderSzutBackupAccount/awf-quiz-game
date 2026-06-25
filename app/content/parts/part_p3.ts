@@ -210,9 +210,9 @@ export const partP3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Buty trekkingowe za kostkę powinny być rozchodzone przed wyjazdem.',
-        correct: true,
-        explain: 'Buty za kostkę z membraną i sztywną podeszwą należy rozchodzić przed wyjazdem, by uniknąć otarć i kontuzji na szlaku.',
+        q: 'Nowe buty trekkingowe najlepiej założyć po raz pierwszy dopiero na szlaku, bez wcześniejszego rozchodzenia.',
+        correct: false,
+        explain: 'Buty za kostkę należy rozchodzić przed wyjazdem — zakładanie nowych dopiero na szlaku grozi otarciami i kontuzjami.',
       },
       {
         type: 'flash',
@@ -270,9 +270,9 @@ export const partP3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Wymagania infrastrukturalne dla żeglarstwa są bardzo wysokie i kosztowne.',
-        correct: true,
-        explain: 'Żeglarstwo wymaga portów, serwisu, slipów, szkół, kapitanatów i gastronomii, co czyni infrastrukturę bardzo wysoką i kosztowną.',
+        q: 'Wymagania infrastrukturalne dla żeglarstwa są minimalne i tanie.',
+        correct: false,
+        explain: 'Przeciwnie — żeglarstwo wymaga portów, slipów, serwisu, szkół, kapitanatów i gastronomii, więc infrastruktura jest bardzo wysoka i kosztowna.',
       },
       {
         type: 'flash',
