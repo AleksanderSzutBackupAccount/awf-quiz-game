@@ -1,3 +1,4 @@
+import { mergeProgress, type ProgressSnap } from '~/utils/progressMerge'
 import { useProgressStore } from '~/stores/progress'
 import { useTopicsStore } from '~/stores/topics'
 
@@ -14,53 +15,21 @@ export default defineNuxtPlugin(() => {
   let ready = false
   let debounce: ReturnType<typeof setTimeout> | null = null
 
-  type Snap = {
-    mastery: Record<string, { correct: number; seen: number }>
-    history: any[]
-    xp: number
-    celebratedLevels: string[]
-  }
-
   // Reliable authenticated user id (useSupabaseUser().id can be empty right after load).
   async function authUid(): Promise<string | null> {
     const { data } = await supabase.auth.getSession()
     return data.session?.user?.id ?? null
   }
 
-  const snapshot = (): Snap => ({
+  const snapshot = (): ProgressSnap => ({
     mastery: progress.mastery,
     history: progress.history,
     xp: progress.xp,
+    xpBySpec: progress.xpBySpec,
     celebratedLevels: progress.celebratedLevels,
   })
 
-  function merge(local: Snap, server: Partial<Snap>): Snap {
-    const mastery: Snap['mastery'] = { ...(server.mastery ?? {}) }
-    for (const [id, m] of Object.entries(local.mastery ?? {})) {
-      const s = mastery[id]
-      mastery[id] = s
-        ? { correct: Math.max(s.correct, m.correct), seen: Math.max(s.seen, m.seen) }
-        : m
-    }
-    const seen = new Set<string>()
-    const history: any[] = []
-    for (const h of [...(server.history ?? []), ...(local.history ?? [])]) {
-      if (h?.id && !seen.has(h.id)) {
-        seen.add(h.id)
-        history.push(h)
-      }
-    }
-    return {
-      mastery,
-      xp: Math.max(local.xp ?? 0, server.xp ?? 0),
-      celebratedLevels: Array.from(
-        new Set([...(local.celebratedLevels ?? []), ...(server.celebratedLevels ?? [])])
-      ),
-      history: history.slice(-50),
-    }
-  }
-
-  async function push(snap: Snap) {
+  async function push(snap: ProgressSnap) {
     const uid = await authUid()
     if (!uid) return
     const { error } = await supabase
@@ -78,7 +47,7 @@ export default defineNuxtPlugin(() => {
       .select('data')
       .eq('user_id', uid)
       .maybeSingle()
-    const merged = merge(snapshot(), (data?.data as Partial<Snap>) ?? {})
+    const merged = mergeProgress(snapshot(), (data?.data as Partial<ProgressSnap>) ?? {})
     progress.applySnapshot(merged)
     await push(merged)
     ready = true
