@@ -5,12 +5,19 @@ import { useReveal } from '~/composables/useReveal'
 import { useLevels, type Level } from '~/composables/useLevels'
 import { useCelebration } from '~/composables/useCelebration'
 import { XP_PER_CORRECT } from '~/stores/progress'
+import { useProfileStore } from '~/stores/profile'
+import { useLeaderboard } from '~/composables/useLeaderboard'
+import { computeOvertaken } from '~/utils/leaderboard'
 
 const quiz = useQuizStore()
 const progress = useProgressStore()
 const router = useRouter()
 const { reveal } = useReveal()
 const { confetti } = useCelebration()
+const profile = useProfileStore()
+const { fetchLeaderboard } = useLeaderboard()
+const overtaken = ref<string[]>([])
+const showOvertake = ref(false)
 
 const specRef = computed(() => quiz.specialization)
 const { levels } = useLevels(specRef)
@@ -43,7 +50,25 @@ onMounted(() => {
     // celebrate a strong result even without a level-up
     confetti({ count: 110 })
   }
+  void detectOvertaken()
 })
+
+async function detectOvertaken() {
+  const spec = quiz.specialization
+  if (!profile.displayName || !spec) return
+  const xpAfter = progress.xpForSpec(spec)
+  const xpBefore = xpAfter - quiz.score * XP_PER_CORRECT
+  try {
+    const rows = await fetchLeaderboard(spec)
+    const names = computeOvertaken(rows, xpBefore, xpAfter)
+    if (names.length) {
+      overtaken.value = names
+      showOvertake.value = true
+    }
+  } catch {
+    /* silent — ranking errors must not break the results screen */
+  }
+}
 
 const pct = computed(() =>
   quiz.total ? Math.round((quiz.score / quiz.total) * 100) : 0
@@ -144,6 +169,11 @@ const ringStyle = computed(() => ({
       :level-title="currentLevelUp.title"
       :level-number="currentLevelUp.number"
       @close="dismissLevelUp"
+    />
+    <OvertakeModal
+      v-if="showOvertake && !currentLevelUp"
+      :names="overtaken"
+      @close="showOvertake = false"
     />
   </section>
 </template>
