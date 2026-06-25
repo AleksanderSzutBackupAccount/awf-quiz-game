@@ -47,17 +47,38 @@ npm run build                  # build produkcyjny
   update public.profiles set approved = true where email = 'osoba@example.com';
   ```
 
-### Google OAuth
-1. W Google Cloud Console utwórz **OAuth Client (Web)**.
-2. Authorized redirect URIs: `http://127.0.0.1:54321/auth/v1/callback` (lokalnie) oraz
-   `https://<PROJECT_REF>.supabase.co/auth/v1/callback` (produkcja).
-3. Wpisz `SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID` i `..._SECRET` do `.env`,
-   w `supabase/config.toml` ustaw `[auth.external.google] enabled = true`, potem `supabase stop && supabase start`.
-   (E-mail/hasło działa od razu, bez tego kroku.)
+### Google OAuth — PRODUKCJA (app: https://awf-quiz-turystyka.szut.software)
+Provider Google konfiguruje się w **Dashboardzie** produkcyjnego projektu (nie w `config.toml`).
+`<PROJECT_REF>` znajdziesz w Supabase → Project Settings → General (lub w URL `https://<REF>.supabase.co`).
+
+1. **Google Cloud Console** → APIs & Services → Credentials → *Create OAuth client ID* → typ **Web application**:
+   - **Authorized JavaScript origins**: `https://awf-quiz-turystyka.szut.software`
+   - **Authorized redirect URIs**: `https://<PROJECT_REF>.supabase.co/auth/v1/callback`
+     (to callback **Supabase**, nie aplikacji — Supabase po zalogowaniu wróci do aplikacji)
+   - Skopiuj **Client ID** i **Client secret**.
+2. **Supabase Dashboard** (projekt produkcyjny):
+   - **Authentication → URL Configuration**:
+     - *Site URL*: `https://awf-quiz-turystyka.szut.software`
+     - *Redirect URLs*: `https://awf-quiz-turystyka.szut.software/confirm`
+       (możesz dodać też `https://awf-quiz-turystyka.szut.software/**`)
+   - **Authentication → Providers → Google**: włącz, wklej **Client ID** + **Client secret**, zapisz.
+3. **Frontend** (host aplikacji) — env produkcyjne:
+   - `SUPABASE_URL=https://<PROJECT_REF>.supabase.co`
+   - `SUPABASE_KEY=<anon key z Project Settings → API>`
+   - `SITE_URL=https://awf-quiz-turystyka.szut.software`
+   po zmianie redeploy frontu.
+
+E-mail/hasło działa bez powyższych kroków. CI **nie** nadpisuje tych ustawień (usunęliśmy `config push`).
+
+### Google OAuth — lokalnie (opcjonalne)
+Dodatkowy redirect URI w Google: `http://127.0.0.1:54321/auth/v1/callback`. Wpisz
+`SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID/SECRET` do `.env`, ustaw `[auth.external.google] enabled = true`
+w `supabase/config.toml`, potem `supabase stop && supabase start`.
 
 ## Wdrożenie na produkcję (CI/CD)
-GitHub Actions (`.github/workflows/supabase-deploy.yml`) przy pushu do `main` (zmiany w `supabase/**`)
-loguje się do projektu i robi `supabase db push` + `supabase config push`.
+GitHub Actions (`.github/workflows/supabase-deploy.yml`) przy pushu do `main` (zmiany w `supabase/migrations`)
+loguje się do projektu i robi `supabase db push` (same migracje schematu). Ustawienia auth (Site URL,
+Redirect URLs, Google) są w Dashboardzie — CI ich nie dotyka.
 Jednorazowa konfiguracja:
 1. Utwórz produkcyjny projekt na https://supabase.com (zapisz **Project ref** i hasło bazy).
 2. Wygeneruj **Access Token**: https://supabase.com/dashboard/account/tokens

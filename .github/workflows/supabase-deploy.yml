@@ -1,7 +1,10 @@
 name: Deploy Supabase
 
-# Wgrywa migracje bazy i konfigurację auth na produkcyjny projekt Supabase
-# przy każdym pushu do main, który zmienia cokolwiek w supabase/.
+# Wgrywa migracje bazy na produkcyjny projekt Supabase przy każdym pushu do main,
+# który zmienia cokolwiek w supabase/migrations.
+# Uwaga: NIE robimy `supabase config push` — ustawienia auth (Site URL, Redirect
+# URLs, provider Google) są zarządzane w Dashboardzie produkcyjnego projektu, żeby
+# lokalny config.toml (localhost) ich nie nadpisywał.
 on:
   push:
     branches: [main]
@@ -29,6 +32,3 @@ jobs:
 
       - name: Push database migrations
         run: supabase db push
-
-      - name: Push auth / project config
-        run: supabase config push
