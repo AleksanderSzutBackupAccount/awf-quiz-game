@@ -38,7 +38,7 @@ watch(
 
 function commit(given: number | boolean | 'known' | 'review', correct: boolean) {
   quiz.answer({ given, correct })
-  if (item.value) progress.recordAnswer(item.value.topicId, correct)
+  if (item.value) progress.recordAnswer(item.value.topicId, correct, quiz.specialization ?? undefined)
 }
 
 function pickAbcd(i: number) {
