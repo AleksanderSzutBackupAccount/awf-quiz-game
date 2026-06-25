@@ -36,6 +36,16 @@ npm run build                  # build produkcyjny
   Logika w `supabase/migrations/*_init_auth_sessions.sql`, klient w `app/plugins/deviceGuard.client.ts`.
 - **Synchronizacja postępu**: XP/opanowanie/historia trzymane w `user_progress` (JSONB, RLS per użytkownik);
   przy logowaniu scalane z lokalnym stanem (`app/plugins/progressSync.client.ts`).
+- **Aktywacja konta (ręczna)**: nowe konta są **nieaktywne** (`profiles.approved = false`, tworzone
+  automatycznie triggerem). Niezatwierdzony użytkownik po zalogowaniu widzi `/pending` z instrukcją
+  kontaktu (e-mail **contact@szut.software** / SMS **793448398**, podając swój adres e-mail).
+  Gate: `app/middleware/approval.global.ts`. Użytkownicy nie mogą sami się zatwierdzić (brak polityki
+  UPDATE; zmiana tylko przez service role/admina).
+
+  **Aktywacja przez admina** — w Supabase Studio (lub SQL) ustaw `approved = true`:
+  ```sql
+  update public.profiles set approved = true where email = 'osoba@example.com';
+  ```
 
 ### Google OAuth
 1. W Google Cloud Console utwórz **OAuth Client (Web)**.

@@ -35,7 +35,8 @@ async function withEmail() {
         password: password.value,
       })
       if (e) throw e
-      notice.value = 'Konto utworzone. Możesz się zalogować.'
+      notice.value =
+        'Konto utworzone. Zaloguj się — zobaczysz instrukcję aktywacji dostępu.'
       mode.value = 'login'
     } else {
       const { error: e } = await supabase.auth.signInWithPassword({
