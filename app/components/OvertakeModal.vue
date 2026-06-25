@@ -6,11 +6,15 @@ const emit = defineEmits<{ close: [] }>()
 
 const { confetti } = useCelebration()
 
-const label = computed(() =>
-  props.names.length === 1
-    ? `Wyprzedziłeś: ${props.names[0]}!`
-    : `Wyprzedziłeś ${props.names.length} osoby w rankingu!`
-)
+const label = computed(() => {
+  const n = props.names.length
+  if (n === 1) return `Wyprzedziłeś: ${props.names[0]}!`
+  // Polish plural of "osoba" (accusative count): 2-4 → "osoby", else → "osób"
+  const last = n % 10
+  const teens = n % 100
+  const noun = last >= 2 && last <= 4 && !(teens >= 12 && teens <= 14) ? 'osoby' : 'osób'
+  return `Wyprzedziłeś ${n} ${noun} w rankingu!`
+})
 
 function onKey(e: KeyboardEvent) {
   if (e.key === 'Escape' || e.key === 'Enter') emit('close')
