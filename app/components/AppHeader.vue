@@ -2,6 +2,8 @@
 import { useSpecializationStore } from '~/stores/specialization'
 import { useContent } from '~/composables/useContent'
 import { getDeviceId } from '~/composables/useDeviceId'
+import { useProfileStore } from '~/stores/profile'
+import { useNameModal } from '~/composables/useNameModal'
 
 const spec = useSpecializationStore()
 const { getSpecialization } = useContent()
@@ -10,6 +12,9 @@ const router = useRouter()
 
 const supabase = useSupabaseClient()
 const user = useSupabaseUser()
+const profile = useProfileStore()
+const { open: nameModalOpen } = useNameModal()
+function openName() { nameModalOpen.value = true }
 
 async function logout() {
   try {
@@ -42,6 +47,7 @@ const links = [
   { to: '/', label: 'Start' },
   { to: '/wiki', label: 'Baza wiedzy' },
   { to: '/quiz', label: 'Quiz' },
+  { to: '/ranking', label: 'Ranking' },
 ]
 </script>
 
@@ -83,6 +89,17 @@ const links = [
           <span aria-hidden="true">{{ currentSpec.icon }}</span>
           {{ currentSpec.short }}
           <span class="spec-swap">zmień</span>
+        </button>
+
+        <button
+          v-if="user"
+          type="button"
+          class="name-btn chip"
+          :title="profile.displayName || 'Ustaw nazwę w rankingu'"
+          @click="openName"
+        >
+          <span aria-hidden="true">🏷️</span>
+          {{ profile.displayName || 'Nazwa' }}
         </button>
 
         <button
@@ -174,6 +191,13 @@ const links = [
 }
 .logout-btn:hover { color: var(--bad); border-color: rgba(251,113,133,0.4); }
 .logout-ico { font-size: 0.95rem; }
+
+.name-btn {
+  margin-left: 0.4rem; cursor: pointer; font: inherit;
+  font-size: var(--fs-xs); font-weight: 600; color: var(--text-1);
+  display: inline-flex; align-items: center; gap: 0.35rem;
+}
+.name-btn:hover { color: var(--accent); }
 
 .burger { display: none; background: none; border: 0; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 5px; }
 .burger span { display: block; width: 22px; height: 2px; background: var(--text-1); border-radius: 2px; transition: 0.25s; }
