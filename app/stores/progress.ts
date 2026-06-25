@@ -107,6 +107,14 @@ export const useProgressStore = defineStore('progress', {
       this.history.push(run)
       this.persist()
     },
+    // Replace state from a (merged) snapshot — used by cloud sync.
+    applySnapshot(s: Partial<Pick<ProgressState, 'mastery' | 'history' | 'xp' | 'celebratedLevels'>>) {
+      if (s.mastery) this.mastery = s.mastery
+      if (s.history) this.history = s.history
+      if (typeof s.xp === 'number') this.xp = s.xp
+      if (s.celebratedLevels) this.celebratedLevels = s.celebratedLevels
+      this.persist()
+    },
     markLevelCelebrated(levelId: string) {
       if (!this.celebratedLevels.includes(levelId)) {
         this.celebratedLevels.push(levelId)

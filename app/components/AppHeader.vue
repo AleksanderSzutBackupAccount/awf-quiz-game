@@ -1,11 +1,25 @@
 <script setup lang="ts">
 import { useSpecializationStore } from '~/stores/specialization'
 import { useContent } from '~/composables/useContent'
+import { getDeviceId } from '~/composables/useDeviceId'
 
 const spec = useSpecializationStore()
 const { getSpecialization } = useContent()
 const route = useRoute()
 const router = useRouter()
+
+const supabase = useSupabaseClient()
+const user = useSupabaseUser()
+
+async function logout() {
+  try {
+    await supabase.rpc('unregister_device', { p_device_id: getDeviceId() })
+  } catch {
+    /* ignore — sign out regardless */
+  }
+  await supabase.auth.signOut()
+  await navigateTo('/login')
+}
 
 const currentSpec = computed(() =>
   spec.current ? getSpecialization(spec.current) : null
@@ -69,6 +83,17 @@ const links = [
           <span aria-hidden="true">{{ currentSpec.icon }}</span>
           {{ currentSpec.short }}
           <span class="spec-swap">zmień</span>
+        </button>
+
+        <button
+          v-if="user"
+          type="button"
+          class="logout-btn"
+          :title="user.email || 'Wyloguj'"
+          @click="logout"
+        >
+          <span class="logout-ico" aria-hidden="true">⏻</span>
+          <span class="logout-label">Wyloguj</span>
         </button>
       </nav>
     </div>
@@ -140,6 +165,15 @@ const links = [
   border-left: 1px solid var(--glass-border);
   padding-left: 0.45rem;
 }
+.logout-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  margin-left: 0.4rem; padding: 0.45rem 0.75rem;
+  border-radius: var(--radius-full); border: 1px solid var(--glass-border);
+  background: var(--glass-bg); color: var(--text-2); font: inherit;
+  font-size: var(--fs-xs); font-weight: 600; cursor: pointer; transition: 0.2s;
+}
+.logout-btn:hover { color: var(--bad); border-color: rgba(251,113,133,0.4); }
+.logout-ico { font-size: 0.95rem; }
 
 .burger { display: none; background: none; border: 0; cursor: pointer; padding: 0.5rem; flex-direction: column; gap: 5px; }
 .burger span { display: block; width: 22px; height: 2px; background: var(--text-1); border-radius: 2px; transition: 0.25s; }

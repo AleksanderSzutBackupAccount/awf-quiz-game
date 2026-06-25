@@ -7,17 +7,54 @@ zagadnienia w bazie wiedzy.
 
 ## Stack
 - **Nuxt 4** (Vue 3, SSR)
-- **Pinia** — stan (wybrana specjalizacja, postęp nauki, sesja quizu) z zapisem w `localStorage`
-- **GSAP + ScrollTrigger** — animacje (hero, reveal przy scrollu, flip fiszek); z poszanowaniem `prefers-reduced-motion`
+- **Supabase** — logowanie (Google + e-mail/hasło), limit urządzeń, synchronizacja postępu
+- **Pinia** — stan (specjalizacja, postęp nauki, sesja quizu) z zapisem w `localStorage` + sync do chmury
+- **GSAP + ScrollTrigger** — animacje (hero, reveal, flip fiszek, konfetti); `prefers-reduced-motion`
 - Własny CSS (glassmorphism) — bez frameworka UI
 
-## Uruchomienie
+## Uruchomienie (lokalnie)
+Wymaga **Docker Desktop** (dla lokalnego Supabase).
 ```bash
 npm install
-npm run dev        # http://localhost:3000
-npm run build      # build produkcyjny
-npm run preview    # podgląd buildu
+supabase start                 # uruchamia lokalny Supabase (Postgres, Auth, Studio)
+cp .env.example .env           # i wpisz SUPABASE_URL + SUPABASE_KEY z `supabase start`
+npm run dev                    # http://localhost:3000
+
+# pomocne:
+supabase status                # adresy/klucze; Studio: http://127.0.0.1:54323
+supabase db reset              # odtworzenie bazy z migracji (supabase/migrations)
+npm run build                  # build produkcyjny
 ```
+
+## Logowanie i limit urządzeń (Supabase)
+- **Pełna ochrona**: każda strona wymaga logowania (middleware `@nuxtjs/supabase`); publiczne są tylko `/login` i `/confirm`.
+- **Metody**: Google OAuth oraz e-mail + hasło (lokalnie bez potwierdzania e-maila).
+- **Limit 2 urządzeń, wyloguj najstarsze**: każde urządzenie ma stałe `device_id` (localStorage).
+  Przy logowaniu wywoływane jest `register_device` (RPC), które zostawia 2 najaktywniejsze
+  urządzenia i usuwa najstarsze. Każde urządzenie co ~45 s (oraz przy powrocie do karty) robi
+  `touch_device`; jeśli zostało wyparte (zwraca `false`), klient się wylogowuje i pokazuje komunikat.
+  Logika w `supabase/migrations/*_init_auth_sessions.sql`, klient w `app/plugins/deviceGuard.client.ts`.
+- **Synchronizacja postępu**: XP/opanowanie/historia trzymane w `user_progress` (JSONB, RLS per użytkownik);
+  przy logowaniu scalane z lokalnym stanem (`app/plugins/progressSync.client.ts`).
+
+### Google OAuth
+1. W Google Cloud Console utwórz **OAuth Client (Web)**.
+2. Authorized redirect URIs: `http://127.0.0.1:54321/auth/v1/callback` (lokalnie) oraz
+   `https://<PROJECT_REF>.supabase.co/auth/v1/callback` (produkcja).
+3. Wpisz `SUPABASE_AUTH_EXTERNAL_GOOGLE_CLIENT_ID` i `..._SECRET` do `.env`,
+   w `supabase/config.toml` ustaw `[auth.external.google] enabled = true`, potem `supabase stop && supabase start`.
+   (E-mail/hasło działa od razu, bez tego kroku.)
+
+## Wdrożenie na produkcję (CI/CD)
+GitHub Actions (`.github/workflows/supabase-deploy.yml`) przy pushu do `main` (zmiany w `supabase/**`)
+loguje się do projektu i robi `supabase db push` + `supabase config push`.
+Jednorazowa konfiguracja:
+1. Utwórz produkcyjny projekt na https://supabase.com (zapisz **Project ref** i hasło bazy).
+2. Wygeneruj **Access Token**: https://supabase.com/dashboard/account/tokens
+3. W repo → Settings → Secrets and variables → Actions dodaj sekrety:
+   `SUPABASE_ACCESS_TOKEN`, `SUPABASE_PROJECT_REF`, `SUPABASE_DB_PASSWORD`.
+4. W produkcyjnym projekcie (dashboard) włącz Google provider i ustaw Site URL na adres hostingu.
+5. Frontend (Nuxt) hostuj osobno (np. Vercel/Netlify/Cloudflare) z env `SUPABASE_URL`, `SUPABASE_KEY`, `SITE_URL`.
 
 ## Funkcje
 - **Wybór specjalizacji na starcie**: **Hotelarstwo** oraz **Turystyka Przygodowa**.

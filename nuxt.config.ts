@@ -2,8 +2,18 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-01-01',
   devtools: { enabled: true },
-  modules: ['@pinia/nuxt'],
+  modules: ['@pinia/nuxt', '@nuxtjs/supabase'],
   css: ['~/assets/css/main.css'],
+  // Supabase auth: full protection — every route requires login except the ones below.
+  supabase: {
+    redirectOptions: {
+      login: '/login',
+      callback: '/confirm',
+      include: undefined,
+      exclude: ['/login', '/confirm'],
+      saveRedirectToCookie: true,
+    },
+  },
   app: {
     head: {
       htmlAttrs: { lang: 'pl' },
