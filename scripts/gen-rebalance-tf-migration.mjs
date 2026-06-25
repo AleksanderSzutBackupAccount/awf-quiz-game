@@ -34,6 +34,6 @@ from jsonb_to_recordset(${TAG}${json}${TAG}::jsonb)
 where t.id = x.id;
 `
 
-const out = resolve(__dirname, '../supabase/migrations/20260625160000_rebalance_tf_answers.sql')
+const out = resolve(__dirname, '../supabase/migrations/20260625170000_rebalance_tf_answers.sql')
 writeFileSync(out, sql)
 console.log(`Wrote ${out} (${rows.length} topics, ${(sql.length / 1024).toFixed(1)} kB)`)
