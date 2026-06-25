@@ -22,7 +22,8 @@ const showOvertake = ref(false)
 const specRef = computed(() => quiz.specialization)
 const { levels } = useLevels(specRef)
 
-const xpEarned = computed(() => quiz.score * XP_PER_CORRECT)
+// Flashcards don't award XP (self-graded), so never show an XP gain for them.
+const xpEarned = computed(() => (isFlash.value ? 0 : quiz.score * XP_PER_CORRECT))
 
 // queue of freshly-completed (not yet celebrated) levels to show as level-up modals
 const levelUpQueue = ref<Level[]>([])
@@ -55,7 +56,7 @@ onMounted(() => {
 
 async function detectOvertaken() {
   const spec = quiz.specialization
-  if (!profile.displayName || !spec) return
+  if (isFlash.value || !profile.displayName || !spec) return
   const xpAfter = progress.xpForSpec(spec)
   const xpBefore = xpAfter - quiz.score * XP_PER_CORRECT
   try {
@@ -132,6 +133,9 @@ const ringStyle = computed(() => ({
           <p v-if="xpEarned > 0" class="xp-earned">
             <span aria-hidden="true">✨</span> Zdobyto <strong><CountUp :to="xpEarned" /> XP</strong>
           </p>
+          <p v-else-if="isFlash" class="flash-note dim">
+            <span aria-hidden="true">ℹ️</span> Fiszki są samodzielnie oceniane, więc nie wpływają na XP ani ranking.
+          </p>
           <div class="summary-actions">
             <button v-if="wrongCount > 0" class="btn btn-primary" @click="repeatWrong">
               ↺ Powtórz {{ isFlash ? 'oznaczone' : 'błędne' }} ({{ wrongCount }})
@@ -141,6 +145,10 @@ const ringStyle = computed(() => ({
           </div>
         </div>
       </GlassCard>
+
+      <div v-if="quiz.specialization" class="reveal rank-standing">
+        <RankStanding :spec="quiz.specialization" />
+      </div>
 
       <h2 class="review-title reveal">
         Przegląd odpowiedzi
@@ -196,11 +204,13 @@ const ringStyle = computed(() => ({
 .summary-text h1 { font-size: var(--fs-xl); margin: 0.3rem 0; }
 .xp-earned { margin-top: 0.4rem; font-size: var(--fs-base); color: var(--aurora-2); }
 .xp-earned strong { color: var(--text-1); }
+.flash-note { margin-top: 0.4rem; font-size: var(--fs-sm); }
 .summary-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: var(--sp-3); }
 
 .review-title { font-size: var(--fs-lg); margin-bottom: var(--sp-3); }
 .review-title .dim { font-size: var(--fs-sm); font-weight: 400; }
 .review-list { display: flex; flex-direction: column; gap: var(--sp-3); }
+.rank-standing { margin-bottom: var(--sp-5); }
 
 .empty { text-align: center; max-width: 480px; margin: var(--sp-6) auto; display: flex; flex-direction: column; gap: 1rem; align-items: center; }
 </style>

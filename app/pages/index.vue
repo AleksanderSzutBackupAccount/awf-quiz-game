@@ -129,6 +129,10 @@ watch(
         </div>
       </GlassCard>
 
+      <div class="reveal rank-standing" :data-reveal-delay="0.08">
+        <RankStanding :spec="chosen.id" />
+      </div>
+
       <div class="reveal path-head">
         <h3>Ścieżka nauki</h3>
         <p class="muted">Przechodź poziom po poziomie — odblokowuj kolejne etapy, opanowując zagadnienia w quizach.</p>
@@ -177,6 +181,7 @@ watch(
 .cta-actions .btn { flex: 1; min-width: 220px; }
 
 .cats-title { margin-bottom: var(--sp-3); }
+.rank-standing { margin-top: var(--sp-5); }
 .path-head { margin: var(--sp-5) 0 var(--sp-3); }
 .path-head h3 { font-size: var(--fs-xl); }
 .path-head p { margin-top: 0.3rem; max-width: 560px; }

@@ -17,6 +17,11 @@ export const RANKS = [
   'Legenda',
 ]
 
+/** Rank title for an arbitrary XP total (shared by the leaderboard views). */
+export function rankNameForXp(xp: number): string {
+  return RANKS[Math.min(RANKS.length - 1, Math.floor(xp / XP_PER_LEVEL))] ?? RANKS[0]!
+}
+
 export interface QuizRun {
   id: string
   specialization: SpecializationId

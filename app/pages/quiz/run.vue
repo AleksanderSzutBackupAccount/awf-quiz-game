@@ -38,7 +38,11 @@ watch(
 
 function commit(given: number | boolean | 'known' | 'review', correct: boolean) {
   quiz.answer({ given, correct })
-  if (item.value) progress.recordAnswer(item.value.topicId, correct, quiz.specialization ?? undefined)
+  // Flashcards are self-graded (you can't really be "wrong"), so they must not
+  // feed mastery, XP or the ranking — only graded modes (abcd / tf) count.
+  if (quiz.mode !== 'flash' && item.value) {
+    progress.recordAnswer(item.value.topicId, correct, quiz.specialization ?? undefined)
+  }
 }
 
 function pickAbcd(i: number) {
