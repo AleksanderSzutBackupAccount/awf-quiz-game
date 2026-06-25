@@ -30,8 +30,8 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile poziomów przygody wyróżnia się w charakterystyce uczestników turystyki przygodowej?',
-        options: ['Dwa', 'Trzy', 'Cztery', 'Pięć'],
-        correct: 2,
+        options: ['Dwa', 'Cztery', 'Trzy', 'Pięć'],
+        correct: 1,
         explain: 'Wyróżnia się cztery poziomy: nieszczęście, przygodę ekstremalną, przygodę i zabawę.'
       },
       {
@@ -75,15 +75,15 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który etap zarządzania projektem turystycznym obejmuje opracowanie harmonogramu, budżetu i strategii zarządzania ryzykiem?',
-        options: ['Inicjacja', 'Planowanie', 'Realizacja', 'Zamknięcie'],
-        correct: 1,
+        options: ['Inicjacja', 'Zamknięcie', 'Realizacja', 'Planowanie'],
+        correct: 3,
         explain: 'Na etapie planowania opracowuje się szczegółowy plan z harmonogramem, budżetem, zasobami oraz strategią zarządzania ryzykiem.'
       },
       {
         type: 'abcd',
         q: 'Na którym etapie projektu sporządza się raport końcowy i przeprowadza rozliczenie finansowe?',
-        options: ['Monitorowanie', 'Realizacja', 'Zamknięcie', 'Inicjacja'],
-        correct: 2,
+        options: ['Zamknięcie', 'Realizacja', 'Monitorowanie', 'Inicjacja'],
+        correct: 0,
         explain: 'Zamknięcie obejmuje podsumowanie wyników, ocenę, dokumentację, rozliczenie finansowe i raport końcowy.'
       },
       {
@@ -122,11 +122,11 @@ export const partP1: Topic[] = [
         q: 'Co najlepiej odróżnia fotografię dokumentalną od fotoreportażu?',
         options: [
           'Fotografia dokumentalna wymaga pozowania modeli',
-          'Obrazy dokumentalne wykorzystywane są zbiorowo, by naświetlić głębszy problem, a fotoreportaż ogranicza się do pojedynczej wiadomości lub wydarzenia',
           'Fotoreportaż zawsze dotyczy danych historycznych',
+          'Obrazy dokumentalne wykorzystywane są zbiorowo, by naświetlić głębszy problem, a fotoreportaż ogranicza się do pojedynczej wiadomości lub wydarzenia',
           'Fotografia dokumentalna dotyczy wyłącznie wydarzeń wojennych'
         ],
-        correct: 1,
+        correct: 2,
         explain: 'Fotoreportaż ogranicza się do pojedynczej wiadomości lub wydarzenia, a obrazy dokumentalne wykorzystywane są zbiorowo, aby naświetlić głębszy problem.'
       },
       {
@@ -182,8 +182,8 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który format zdjęć jest wskazany dla Instagrama według zasady dostosowania do platformy?',
-        options: ['Kwadratowy', 'Wyłącznie pionowy', 'Wyłącznie poziomy', 'Panoramiczny 21:9'],
-        correct: 0,
+        options: ['Panoramiczny 21:9', 'Wyłącznie pionowy', 'Wyłącznie poziomy', 'Kwadratowy'],
+        correct: 3,
         explain: 'Instagram wymaga zdjęć w kwadratowym formacie, a Facebook w pionowym lub poziomym.'
       },
       {
@@ -228,8 +228,8 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który element NIE należy do trzonu kompetencji kulturowych (skills, attitude, knowledge)?',
-        options: ['Skills - umiejętności', 'Attitude - postawa', 'Knowledge - wiedza', 'Budget - budżet'],
-        correct: 3,
+        options: ['Skills - umiejętności', 'Attitude - postawa', 'Budget - budżet', 'Knowledge - wiedza'],
+        correct: 2,
         explain: 'Trzon kompetencji kulturowych stanowią skills (umiejętności), attitude (postawa) i knowledge (wiedza); budżet nie wchodzi w jego skład.'
       },
       {
@@ -278,11 +278,11 @@ export const partP1: Topic[] = [
         q: 'Który z poniższych jest podstawowym wymogiem dla pilotów i przewodników turystyki trampingowej?',
         options: [
           'Ukończenie 16 lat',
-          'Ukończenie 18 lat, niekaralność oraz wykształcenie średnie',
+          'Co najmniej 10 lat doświadczenia w terenie',
           'Wykształcenie wyższe kierunkowe',
-          'Co najmniej 10 lat doświadczenia w terenie'
+          'Ukończenie 18 lat, niekaralność oraz wykształcenie średnie'
         ],
-        correct: 1,
+        correct: 3,
         explain: 'Podstawowe wymogi to ukończenie 18 lat, niekaralność oraz wykształcenie średnie.'
       },
       {
@@ -330,11 +330,11 @@ export const partP1: Topic[] = [
         q: 'Na czym opiera się założenie kwestionariusza SERVQUAL?',
         options: [
           'Na liczbie odwiedzin atrakcji w sezonie',
-          'Na różnicy między oczekiwaniami klienta wobec usługi a jej percepcją',
           'Na pomiarze długości i przewyższeń trasy',
+          'Na różnicy między oczekiwaniami klienta wobec usługi a jej percepcją',
           'Na obserwacji uczestniczącej na skali 0-10'
         ],
-        correct: 1,
+        correct: 2,
         explain: 'SERVQUAL zakłada, że satysfakcja z jakości usługi jest różnicą między oczekiwaniami klienta wobec niej a jej percepcją.'
       },
       {
@@ -381,15 +381,15 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Która skala służy do oceny trudności tras rowerowych?',
-        options: ['Skala UIAA', 'Skala singletrail (S0-S5)', 'Skala SAC (T1-T6)', 'Skala WW I do WW VI'],
-        correct: 1,
+        options: ['Skala UIAA', 'Skala WW I do WW VI', 'Skala SAC (T1-T6)', 'Skala singletrail (S0-S5)'],
+        correct: 3,
         explain: 'Skala singletrail to system klasyfikacji trudności tras rowerowych obejmujący 6 poziomów od S0 do S5.'
       },
       {
         type: 'abcd',
         q: 'Jakim kolorem oznacza się ekstremalne trasy narciarskie?',
-        options: ['Niebieskim', 'Zielonym', 'Czerwonym', 'Czarnym'],
-        correct: 3,
+        options: ['Czarnym', 'Zielonym', 'Czerwonym', 'Niebieskim'],
+        correct: 0,
         explain: 'Trasy łatwe oznacza się kolorem niebieskim, a trasy ekstremalne kolorem czarnym.'
       },
       {
@@ -435,23 +435,23 @@ export const partP1: Topic[] = [
         q: 'Co charakteryzuje miękkie formy aktywności turystyki przygodowej?',
         options: [
           'Wysoki stopień ryzyka i konieczność zaawansowanych umiejętności',
-          'Niski stopień ryzyka i dostępność dla osób bez specjalnego przygotowania',
+          'Obowiązkowy udział instruktora z licencją',
           'Wyłącznie aktywności wysokogórskie',
-          'Obowiązkowy udział instruktora z licencją'
+          'Niski stopień ryzyka i dostępność dla osób bez specjalnego przygotowania'
         ],
-        correct: 1,
+        correct: 3,
         explain: 'Miękkie formy charakteryzują się niskim stopniem ryzyka i są dostępne dla osób bez specjalnych umiejętności czy przygotowania.'
       },
       {
         type: 'abcd',
         q: 'Które zwierzęta tworzą tzw. Wielką Piątkę, będącą pożądanym celem safari?',
         options: [
-          'Lwy, słonie, nosorożce, lamparty i bawoły',
-          'Lwy, żyrafy, zebry, hieny i gepardy',
           'Słonie, nosorożce, krokodyle, lwy i goryle',
+          'Lwy, żyrafy, zebry, hieny i gepardy',
+          'Lwy, słonie, nosorożce, lamparty i bawoły',
           'Lamparty, tygrysy, lwy, niedźwiedzie i wilki'
         ],
-        correct: 0,
+        correct: 2,
         explain: 'Wielką Piątkę tworzą lwy, słonie, nosorożce, lamparty i bawoły.'
       },
       {
@@ -502,12 +502,12 @@ export const partP1: Topic[] = [
         type: 'abcd',
         q: 'Która forma turystyki przygodowej jest najbardziej charakterystyczna dla pustyni Gobi?',
         options: [
-          'Nurkowanie i żeglarstwo',
           'Turystyka offroadowa i rajdy quadowe',
+          'Nurkowanie i żeglarstwo',
           'Wspinaczka wysokogórska',
           'Kajakarstwo'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Na pustyni Gobi uprawia się przede wszystkim formy turystyki offroadowej i rajdy quadowe, a bezpieczeństwo zapewniają wieże sygnałowe GPS.'
       },
       {
@@ -557,8 +557,8 @@ export const partP1: Topic[] = [
       {
         type: 'abcd',
         q: 'Która grupa ratownicza działa w polskich Tatrach jako udogodnienie dla turystów?',
-        options: ['Air Zermatt', 'TOPR', 'GOPR Beskidy', 'WOPR'],
-        correct: 1,
+        options: ['Air Zermatt', 'WOPR', 'GOPR Beskidy', 'TOPR'],
+        correct: 3,
         explain: 'W Tatrach działa TOPR, a Air Zermatt to ratownicy z regionu Matterhornu w Alpach.'
       },
       {

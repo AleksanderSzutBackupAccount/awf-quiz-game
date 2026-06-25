@@ -46,8 +46,8 @@ export const partC3: Topic[] = [
       {
         type: 'abcd',
         q: 'Który test polega na przebiegnięciu jak najdłuższego dystansu w ciągu 12 minut?',
-        options: ['Test Ruffiera', 'Test Coopera', 'Test Wingate', 'Test Astranda'],
-        correct: 1,
+        options: ['Test Ruffiera', 'Test Astranda', 'Test Wingate', 'Test Coopera'],
+        correct: 3,
         explain: 'Test Coopera to bieg przez 12 minut, w którym mierzy się pokonany dystans pozwalający oszacować VO2max.'
       },
       {
@@ -147,8 +147,8 @@ export const partC3: Topic[] = [
       {
         type: 'abcd',
         q: 'Jaki efekt fizjologiczny daje aktywność fizyczna w kontekście redukcji stresu?',
-        options: ['Podnosi poziom kortyzolu', 'Obniża poziom kortyzolu', 'Zwiększa napięcie psychiczne', 'Pogarsza jakość snu'],
-        correct: 1,
+        options: ['Podnosi poziom kortyzolu', 'Pogarsza jakość snu', 'Zwiększa napięcie psychiczne', 'Obniża poziom kortyzolu'],
+        correct: 3,
         explain: 'Aktywność fizyczna obniża poziom kortyzolu (hormonu stresu) i poprawia samopoczucie.'
       },
       {
@@ -192,8 +192,8 @@ export const partC3: Topic[] = [
       {
         type: 'abcd',
         q: 'Do której grupy pozycji wyjściowych zaliczamy siady, podpory i leżenia?',
-        options: ['Pozycje wysokie', 'Pozycje półwysokie', 'Pozycje niskie', 'Pozycje równoważne'],
-        correct: 2,
+        options: ['Pozycje wysokie', 'Pozycje niskie', 'Pozycje półwysokie', 'Pozycje równoważne'],
+        correct: 1,
         explain: 'Pozycje niskie obejmują siady, podpory i leżenia.'
       },
       {
@@ -296,12 +296,12 @@ export const partC3: Topic[] = [
         type: 'abcd',
         q: 'Co oznacza podejście mobile-first przy tworzeniu stron internetowych?',
         options: [
-          'Strona tworzona najpierw z myślą o smartfonach, a potem dopasowana do komputerów',
+          'Tworzenie osobnej aplikacji zamiast strony',
           'Strona dostępna tylko na komputerach',
           'Rezygnacja z wersji mobilnej',
-          'Tworzenie osobnej aplikacji zamiast strony'
+          'Strona tworzona najpierw z myślą o smartfonach, a potem dopasowana do komputerów'
         ],
-        correct: 0,
+        correct: 3,
         explain: 'Mobile-first oznacza projektowanie najpierw pod smartfony, a następnie dopasowanie do komputerów, bo coraz więcej osób przegląda internet przez telefon.'
       },
       {
@@ -361,8 +361,8 @@ export const partC3: Topic[] = [
       {
         type: 'abcd',
         q: 'Która metoda należy do badań jakościowych rynku turystycznego?',
-        options: ['Ankieta zamknięta', 'Grupa fokusowa', 'Analiza danych liczbowych ze statystyk', 'Badanie popytu turystycznego'],
-        correct: 1,
+        options: ['Grupa fokusowa', 'Ankieta zamknięta', 'Analiza danych liczbowych ze statystyk', 'Badanie popytu turystycznego'],
+        correct: 0,
         explain: 'Grupa fokusowa to badanie jakościowe; pozostałe wymienione to metody ilościowe.'
       },
       {
@@ -428,8 +428,8 @@ export const partC3: Topic[] = [
       {
         type: 'abcd',
         q: 'Do której grupy zalicza się metoda jednostajna i zmienna?',
-        options: ['Metody nauczania czynności ruchowych', 'Metody treningowe ciągłe', 'Metody socjotechniczne', 'Metody wychowawcze'],
-        correct: 1,
+        options: ['Metody nauczania czynności ruchowych', 'Metody wychowawcze', 'Metody socjotechniczne', 'Metody treningowe ciągłe'],
+        correct: 3,
         explain: 'Metoda jednostajna (stała intensywność) i zmienna (zmiana tempa) to metody treningowe ciągłe.'
       },
       {

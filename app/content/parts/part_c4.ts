@@ -93,8 +93,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Jak nazywa sie przekonanie, ze wlasna kultura jest lepsza od innych?',
-        options: ['Egocentryzm', 'Etnocentryzm', 'Empatia', 'Sensualizm'],
-        correct: 1,
+        options: ['Etnocentryzm', 'Egocentryzm', 'Empatia', 'Sensualizm'],
+        correct: 0,
         explain: 'Etnocentryzm to przekonanie o wyzszosci wlasnej kultury - bariera komunikacji miedzykulturowej.'
       },
       {
@@ -150,8 +150,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Ktore rosliny w ramach tzw. wymiany kolumbijskiej trafily do Europy?',
-        options: ['Pszenica i trzcina cukrowa', 'Ziemniaki i kukurydza', 'Ryz i jeczmien', 'Len i konopie'],
-        correct: 1,
+        options: ['Pszenica i trzcina cukrowa', 'Len i konopie', 'Ryz i jeczmien', 'Ziemniaki i kukurydza'],
+        correct: 3,
         explain: 'Do Europy trafily m.in. ziemniaki, kukurydza, pomidory, kakao i tyton; pszenice i trzcine cukrowa przywieziono do Ameryki.'
       },
       {
@@ -196,8 +196,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile wody dziennie zaleca sie wypijac w ramach zdrowego odzywiania?',
-        options: ['okolo 0,5 l', 'okolo 1,5-2 l', 'okolo 3-4 l', 'okolo 5 l'],
-        correct: 1,
+        options: ['okolo 1,5-2 l', 'okolo 0,5 l', 'okolo 3-4 l', 'okolo 5 l'],
+        correct: 0,
         explain: 'Zaleca sie picie okolo 1,5-2 l wody dziennie.'
       },
       {
@@ -318,8 +318,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Za pomoca jakich narzedzi rekreant odnajduje punkty kontrolne w biegu na orientacje?',
-        options: ['Telefonu i zegarka', 'Mapy i kompasu', 'Lornetki i busoli satelitarnej', 'Wylacznie znakow szlaku'],
-        correct: 1,
+        options: ['Telefonu i zegarka', 'Lornetki i busoli satelitarnej', 'Mapy i kompasu', 'Wylacznie znakow szlaku'],
+        correct: 2,
         explain: 'Bieg na orientacje polega na odnalezieniu punktow kontrolnych przy pomocy mapy i kompasu.'
       },
       {
@@ -379,8 +379,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Ktora epoka nazywana jest "wiekiem rozumu" i wiaze sie z Wielka Rewolucja Francuska?',
-        options: ['Renesans', 'Barok', 'Oswiecenie', 'Romantyzm'],
-        correct: 2,
+        options: ['Oswiecenie', 'Barok', 'Renesans', 'Romantyzm'],
+        correct: 0,
         explain: 'Oswiecenie (XVIII w.) nazywano "wiekiem rozumu"; doprowadzilo m.in. do Wielkiej Rewolucji Francuskiej (1789).'
       },
       {
@@ -445,8 +445,8 @@ export const partC4: Topic[] = [
       {
         type: 'abcd',
         q: 'Ilu zawodnikow gra na boisku w jednej druzynie w streetballu?',
-        options: ['2', '3', '4', '5'],
-        correct: 1,
+        options: ['2', '4', '3', '5'],
+        correct: 2,
         explain: 'Streetball to koszykowka 3x3 - po 3 zawodnikow na boisku w kazdej druzynie.'
       },
       {

@@ -165,12 +165,12 @@ export const partC5: Topic[] = [
         type: 'abcd',
         q: 'W jaki sposób turystyka zagraniczna wpływa na bilans płatniczy państwa?',
         options: [
-          'Pogarsza saldo, bo turyści wywożą pieniądze za granicę',
           'Poprawia saldo eksportu usług, bo turyści zostawiają pieniądze w kraju',
+          'Pogarsza saldo, bo turyści wywożą pieniądze za granicę',
           'Nie ma żadnego wpływu na bilans płatniczy',
           'Zwiększa wyłącznie import towarów'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Wpływy z turystyki zagranicznej poprawiają saldo eksportu usług, ponieważ turyści wydają pieniądze w odwiedzanym kraju.'
       },
       {
@@ -279,10 +279,10 @@ export const partC5: Topic[] = [
         options: [
           'Bo zawsze wymaga wykupienia biletu wstępu',
           'Bo można z niego korzystać tylko z przewodnikiem',
-          'Bo nie wymaga zakupu i często można korzystać z niego samodzielnie i bezpłatnie',
-          'Bo jest dostępny wyłącznie sezonowo'
+          'Bo jest dostępny wyłącznie sezonowo',
+          'Bo nie wymaga zakupu i często można korzystać z niego samodzielnie i bezpłatnie'
         ],
-        correct: 2,
+        correct: 3,
         explain: 'Szlak jest produktem otwartym, ponieważ nie wymaga zakupu - turyści korzystają z niego samodzielnie, bez przewodnika i często bezpłatnie.'
       },
       {
@@ -338,12 +338,12 @@ export const partC5: Topic[] = [
         type: 'abcd',
         q: 'Ile obiektów przyrodniczych z Polski znajduje się na Liście Światowego Dziedzictwa UNESCO?',
         options: [
-          '2 obiekty (Puszcza Białowieska oraz lasy bukowe Karpat)',
-          '11 obiektów',
           '15 obiektów',
+          '11 obiektów',
+          '2 obiekty (Puszcza Białowieska oraz lasy bukowe Karpat)',
           '17 obiektów'
         ],
-        correct: 0,
+        correct: 2,
         explain: 'Z 17 polskich obiektów UNESCO 15 jest kulturowych, a tylko 2 przyrodnicze: Puszcza Białowieska oraz pierwotne i stare lasy bukowe Karpat.'
       },
       {
@@ -403,8 +403,8 @@ export const partC5: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile parków narodowych znajduje się w Polsce?',
-        options: ['11', '17', '23', '40'],
-        correct: 2,
+        options: ['11', '23', '17', '40'],
+        correct: 1,
         explain: 'W Polsce znajdują się 23 parki narodowe chroniące unikalne ekosystemy i krajobrazy.'
       },
       {
@@ -458,8 +458,8 @@ export const partC5: Topic[] = [
       {
         type: 'abcd',
         q: 'W jakim stylu architekt Jan Baptysta Quadro przebudował poznański Ratusz?',
-        options: ['Gotyk', 'Renesans', 'Barok', 'Klasycyzm'],
-        correct: 1,
+        options: ['Gotyk', 'Barok', 'Renesans', 'Klasycyzm'],
+        correct: 2,
         explain: 'Ratusz uchodzi za jedno z najwspanialszych dzieł renesansu na północ od Alp; Quadro dodał trójkondygnacyjną loggię arkadową i attykę.'
       },
       {
@@ -571,11 +571,11 @@ export const partC5: Topic[] = [
         q: 'Jakie zaplecze jest charakterystyczne dla turystyki biznesowej?',
         options: [
           'Ścieżki edukacyjne i wieże widokowe',
-          'Centra kongresowe, sale konferencyjne i hotele średniej oraz wysokiej klasy',
           'Domy pielgrzyma i obiekty sakralne',
+          'Centra kongresowe, sale konferencyjne i hotele średniej oraz wysokiej klasy',
           'Pokoje gościnne w gospodarstwach rolnych'
         ],
-        correct: 1,
+        correct: 2,
         explain: 'Turystyka biznesowa wymaga infrastruktury konferencyjnej (hale, sale, centra kongresowe) oraz hoteli średniej i wysokiej klasy.'
       },
       {

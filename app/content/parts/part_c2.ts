@@ -42,8 +42,8 @@ export const partC2: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile rodzajów bioróżnorodności wyróżniono w materiale?',
-        options: ['2 - genetyczna i gatunkowa', '3 - genetyczna, gatunkowa, ekosystemowa', '4 - z dodatkiem krajobrazowej', '5'],
-        correct: 1,
+        options: ['3 - genetyczna, gatunkowa, ekosystemowa', '2 - genetyczna i gatunkowa', '4 - z dodatkiem krajobrazowej', '5'],
+        correct: 0,
         explain: 'Wyróżniono trzy rodzaje: genetyczną, gatunkową i ekosystemową.'
       },
       {
@@ -160,12 +160,12 @@ export const partC2: Topic[] = [
         type: 'abcd',
         q: 'Która z poniższych jest zaletą stosowania statystyki w turystyce wymienioną w materiale?',
         options: [
-          'Eliminacja sezonowości ruchu turystycznego',
           'Lepsze planowanie i zarządzanie turystyką',
+          'Eliminacja sezonowości ruchu turystycznego',
           'Likwidacja kosztów infrastruktury',
           'Gwarancja stałej liczby turystów'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Pierwszą wymienioną zaletą jest lepsze planowanie i zarządzanie turystyką dzięki danym o ruchu turystycznym.'
       },
       {
@@ -210,8 +210,8 @@ export const partC2: Topic[] = [
       {
         type: 'abcd',
         q: 'Która funkcja zarządzania polega na monitorowaniu postępów i porównywaniu ich z założonymi celami?',
-        options: ['Planowanie', 'Organizowanie', 'Przewodzenie', 'Kontrolowanie'],
-        correct: 3,
+        options: ['Planowanie', 'Kontrolowanie', 'Przewodzenie', 'Organizowanie'],
+        correct: 1,
         explain: 'Kontrolowanie to monitorowanie postępów i porównywanie ich z celami oraz wprowadzanie korekt.'
       },
       {
@@ -266,20 +266,20 @@ export const partC2: Topic[] = [
       {
         type: 'abcd',
         q: 'Które stanowisko głosi, że wolna wola i determinizm mogą działać razem?',
-        options: ['Twardy determinizm', 'Libertarianizm', 'Kompatybilizm', 'Indeterminizm'],
-        correct: 2,
+        options: ['Twardy determinizm', 'Kompatybilizm', 'Libertarianizm', 'Indeterminizm'],
+        correct: 1,
         explain: 'Kompatybilizm zakłada, że wolna wola i determinizm mogą współistnieć - człowiek jest wolny, jeśli działa zgodnie ze swoimi przekonaniami, a nie pod przymusem.'
       },
       {
         type: 'abcd',
         q: 'Co głosi twardy determinizm w kwestii wolności człowieka?',
         options: [
-          'Człowiek jest w pełni wolny',
           'Wolność to iluzja, wolnej woli nie ma',
+          'Człowiek jest w pełni wolny',
           'Wolność zależy od wychowania',
           'Wolna wola istnieje obok determinizmu'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Według twardego determinizmu wolności nie ma - jest ona tylko iluzją, a wszystko dzieje się, bo musiało się tak stać.'
       },
       {
@@ -342,12 +342,12 @@ export const partC2: Topic[] = [
         type: 'abcd',
         q: 'Co jest kluczowym celem e-marketingu w turystyce?',
         options: [
-          'Wyłącznie obniżenie kosztów drukowania ulotek',
           'Dotarcie do turystów w sposób atrakcyjny, spersonalizowany i mierzalny',
+          'Wyłącznie obniżenie kosztów drukowania ulotek',
           'Zastąpienie pracowników biur podróży',
           'Rezygnacja z analizy danych o klientach'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Celem e-marketingu jest dotarcie do potencjalnych turystów i rekreantów w sposób atrakcyjny, spersonalizowany oraz mierzalny.'
       },
       {
@@ -397,11 +397,11 @@ export const partC2: Topic[] = [
         q: 'Które zadanie należy do kluczowych obowiązków managera w turystyce?',
         options: [
           'Osobiste oprowadzanie wszystkich wycieczek',
-          'Zarządzanie zespołem: rekrutacja, motywowanie, przydzielanie zadań',
+          'Ignorowanie opinii klientów',
           'Zakaz korzystania z e-marketingu',
-          'Ignorowanie opinii klientów'
+          'Zarządzanie zespołem: rekrutacja, motywowanie, przydzielanie zadań'
         ],
-        correct: 1,
+        correct: 3,
         explain: 'Zarządzanie zespołem - rekrutacja, motywowanie, przydzielanie zadań i monitorowanie - to jeden z kluczowych obowiązków managera.'
       },
       {
@@ -453,12 +453,12 @@ export const partC2: Topic[] = [
         type: 'abcd',
         q: 'Co jest cechą badań pierwotnych rynku turystycznego?',
         options: [
-          'Analiza danych opublikowanych wcześniej przez inne podmioty',
           'Zbieranie nowych, niepublikowanych danych bezpośrednio od źródła',
+          'Analiza danych opublikowanych wcześniej przez inne podmioty',
           'Korzystanie wyłącznie z raportów branżowych',
           'Brak możliwości dostosowania do potrzeb badania'
         ],
-        correct: 1,
+        correct: 0,
         explain: 'Badania pierwotne polegają na zbieraniu nowych, niepublikowanych wcześniej danych bezpośrednio od źródła (np. ankiety, wywiady).'
       },
       {
@@ -525,11 +525,11 @@ export const partC2: Topic[] = [
         q: 'Który przykład ilustruje kulturę jako atrakcję turystyczną?',
         options: [
           'Darmowe wi-fi w hotelu',
-          'Zabytki, muzea, festiwale, sztuka i tradycje',
           'Transfer z lotniska',
+          'Zabytki, muzea, festiwale, sztuka i tradycje',
           'Ubezpieczenie podróży'
         ],
-        correct: 1,
+        correct: 2,
         explain: 'Popularne atrakcje kulturowe to zabytki, muzea, festiwale, sztuka, muzyka i tradycje - to one przyciągają turystów.'
       },
       {

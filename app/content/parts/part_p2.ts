@@ -27,12 +27,12 @@ export const partP2: Topic[] = [
         type: 'abcd',
         q: 'Czym jest kreatywne myslenie wedlug definicji?',
         options: [
-          'Procesem umyslowym prowadzacym do generowania nowych i oryginalnych idei, ktore sa uzyteczne i przydatne',
-          'Umiejetnoscia wiernego odtwarzania znanych schematow',
           'Zdolnoscia do szybkiego liczenia w pamieci',
+          'Umiejetnoscia wiernego odtwarzania znanych schematow',
+          'Procesem umyslowym prowadzacym do generowania nowych i oryginalnych idei, ktore sa uzyteczne i przydatne',
           'Postawa unikania jakichkolwiek zmian'
         ],
-        correct: 0,
+        correct: 2,
         explain: 'To proces umyslowy prowadzacy do generowania nowych i oryginalnych idei, rozwiazan lub koncepcji, ktore sa uzyteczne i przydatne.'
       },
       {
@@ -97,8 +97,8 @@ export const partP2: Topic[] = [
       {
         type: 'abcd',
         q: 'Co oznacza litera "S" w technice SCAMPER?',
-        options: ['Substitute - zastapic', 'Simplify - uproscic', 'Standardize - ujednolicic', 'Separate - rozdzielic'],
-        correct: 0,
+        options: ['Separate - rozdzielic', 'Simplify - uproscic', 'Standardize - ujednolicic', 'Substitute - zastapic'],
+        correct: 3,
         explain: 'SCAMPER to: Substitute, Combine, Adapt, Modify, Put to another use, Eliminate, Reverse. "S" oznacza Substitute (zastapic).'
       },
       {
@@ -206,19 +206,19 @@ export const partP2: Topic[] = [
         type: 'abcd',
         q: 'Czym rozni sie tramping od backpackingu?',
         options: [
-          'Tramping zazwyczaj realizowany jest w grupach i ma z gory opracowany zarys lub cel',
-          'Tramping jest zawsze drozszy od turystyki masowej',
           'Tramping odbywa sie wylacznie samotnie i bez planu',
+          'Tramping jest zawsze drozszy od turystyki masowej',
+          'Tramping zazwyczaj realizowany jest w grupach i ma z gory opracowany zarys lub cel',
           'Tramping nie wymaga zadnego transportu'
         ],
-        correct: 0,
+        correct: 2,
         explain: 'Tramping (polska wersja backpackingu) rozni sie tym, ze wyjazd realizowany jest w grupach oraz ma z gory opracowany zarys lub cel.'
       },
       {
         type: 'abcd',
         q: 'Ile osob liczy zazwyczaj grupa trampingowa?',
-        options: ['Do 12 osob', 'Do 50 osob', 'Dokladnie 6 osob', 'Co najmniej 30 osob'],
-        correct: 0,
+        options: ['Co najmniej 30 osob', 'Do 50 osob', 'Dokladnie 6 osob', 'Do 12 osob'],
+        correct: 3,
         explain: 'Tramping to podrozowanie w niewielkich grupach, zazwyczaj do 12 osob.'
       },
       {
@@ -316,20 +316,20 @@ export const partP2: Topic[] = [
       {
         type: 'abcd',
         q: 'Ktory rodzaj trekkingu znany jest rowniez jako rafting?',
-        options: ['Rzeczny', 'Bagienny', 'Lodowcowy', 'Pustynny'],
-        correct: 0,
+        options: ['Pustynny', 'Bagienny', 'Lodowcowy', 'Rzeczny'],
+        correct: 3,
         explain: 'Trekking rzeczny znany jest rowniez jako rafting - uprawiany na rwacych rzekach na pontonach lub tratwach, np. na syberyjskiej Lenie.'
       },
       {
         type: 'abcd',
         q: 'Jakie glowne zagrozenie zdrowotne wiaze sie z trekkingiem tropikalnym?',
         options: [
-          'Owady i przenoszone przez nie choroby zakazne, np. malaria',
           'Ryzyko lawinowe i odmrozenia',
+          'Owady i przenoszone przez nie choroby zakazne, np. malaria',
           'Burze piaskowe i odwodnienie',
           'Toksyczne gazy wulkaniczne'
         ],
-        correct: 0,
+        correct: 1,
         explain: 'W trekkingu tropikalnym niebezpieczenstwo stanowia zwierzeta, szczegolnie owady i przenoszone przez nie choroby zakazne, np. malaria.'
       },
       {
@@ -397,12 +397,12 @@ export const partP2: Topic[] = [
         type: 'abcd',
         q: 'Ktore sa trzy zasadnicze domeny konfliktow kulturowych?',
         options: [
-          'Terytorium, jezyk i religia',
-          'Ekonomia, technologia i ekologia',
           'Wiek, plec i wyksztalcenie',
+          'Ekonomia, technologia i ekologia',
+          'Terytorium, jezyk i religia',
           'Sport, sztuka i nauka'
         ],
-        correct: 0,
+        correct: 2,
         explain: 'Wyrozniamy trzy zasadnicze domeny konfliktow kulturowych: terytorium, jezyk i religia.'
       },
       {
@@ -465,8 +465,8 @@ export const partP2: Topic[] = [
       {
         type: 'abcd',
         q: 'Do ktorej kategorii ryzyk zalicza sie cyberataki i awarie systemow informacyjnych?',
-        options: ['Technologicznych', 'Ekonomicznych', 'Srodowiskowych', 'Geopolitycznych'],
-        correct: 0,
+        options: ['Ekonomicznych', 'Technologicznych', 'Srodowiskowych', 'Geopolitycznych'],
+        correct: 1,
         explain: 'Ryzyka technologiczne sa zwiazane z cyberatakami, awariami systemow informacyjnych oraz rozwojem nowych technologii i ich wplywem na turystyke.'
       },
       {
@@ -519,8 +519,8 @@ export const partP2: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile stopni niepelnosprawnosci ustala sie w Polsce?',
-        options: ['Trzy: znaczny, umiarkowany i lekki', 'Dwa: ciezki i lekki', 'Cztery stopnie', 'Piec stopni'],
-        correct: 0,
+        options: ['Cztery stopnie', 'Dwa: ciezki i lekki', 'Trzy: znaczny, umiarkowany i lekki', 'Piec stopni'],
+        correct: 2,
         explain: 'Ustala sie trzy stopnie niepelnosprawnosci: znaczny, umiarkowany i lekki.'
       },
       {

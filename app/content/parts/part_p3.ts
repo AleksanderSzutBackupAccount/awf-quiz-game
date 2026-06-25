@@ -47,8 +47,8 @@ export const partP3: Topic[] = [
       {
         type: 'abcd',
         q: 'Ilu uczestników może maksymalnie pozostawać pod opieką jednego wychowawcy w grupie mieszanej z dziećmi do 10. roku życia?',
-        options: ['10 osób', '15 osób', '20 osób', '25 osób'],
-        correct: 1,
+        options: ['10 osób', '25 osób', '20 osób', '15 osób'],
+        correct: 3,
         explain: 'Standardowy limit to 20 osób, ale dla grup z dziećmi do 10. roku życia oraz grup mieszanych z takimi dziećmi limit wynosi 15 osób.',
       },
       {
@@ -144,11 +144,11 @@ export const partP3: Topic[] = [
         q: 'Co jest podstawą organizacji wyprawy trampingowej?',
         options: [
           'Wykupienie noclegów o najwyższym standardzie',
-          'Zgromadzenie dużej bazy informacji o miejscu podróży',
-          'Zaplanowanie sztywnego, niezmiennego programu',
           'Ograniczenie kontaktu z lokalną społecznością',
+          'Zaplanowanie sztywnego, niezmiennego programu',
+          'Zgromadzenie dużej bazy informacji o miejscu podróży',
         ],
-        correct: 1,
+        correct: 3,
         explain: 'Podstawą jest zgromadzenie dużej bazy informacji o miejscu — o atrakcjach oraz o warunkach (bezpieczeństwo, pogoda, opłaty).',
       },
       {
@@ -314,11 +314,11 @@ export const partP3: Topic[] = [
         q: 'Co jest potrzebne w turystyce rowerowej obejmującej jazdę MTB oraz downhill, czego zwykle nie wymaga zwykła turystyka rowerowa?',
         options: [
           'Tylko oznakowane miejsca odpoczynku',
-          'Specjalne trasy z zabezpieczeniami, zabezpieczenie medyczne oraz wyciągi linowe',
           'Wyłącznie bazy gastronomiczne',
+          'Specjalne trasy z zabezpieczeniami, zabezpieczenie medyczne oraz wyciągi linowe',
           'Jedynie informacje o pogodzie',
         ],
-        correct: 1,
+        correct: 2,
         explain: 'Dla MTB i downhill potrzebne są dodatkowo miejsca wypożyczenia sprzętu, specjalne trasy z zabezpieczeniami, zabezpieczenie medyczne oraz wyciągi linowe.',
       },
       {

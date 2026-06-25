@@ -39,8 +39,8 @@ export const partH1: Topic[] = [
       {
         type: 'abcd',
         q: 'Kto ma prawo kontrolować pilotów wycieczek?',
-        options: ['Minister sportu', 'Marszałek województwa', 'Prezydent miasta', 'Izba Turystyki'],
-        correct: 1,
+        options: ['Minister sportu', 'Izba Turystyki', 'Prezydent miasta', 'Marszałek województwa'],
+        correct: 3,
         explain: 'Zgodnie z materiałem, prawo kontroli pilotów wycieczek ma marszałek województwa.',
       },
       {
@@ -106,8 +106,8 @@ export const partH1: Topic[] = [
       {
         type: 'abcd',
         q: 'Które koszty imprezy są niezależne od liczby uczestników?',
-        options: ['Koszty zmienne', 'Koszty stałe', 'Prowizje agentów', 'Bilety wstępu'],
-        correct: 1,
+        options: ['Koszty stałe', 'Koszty zmienne', 'Prowizje agentów', 'Bilety wstępu'],
+        correct: 0,
         explain:
           'Koszty stałe (np. wynagrodzenie pilota, rezerwacje) nie zależą od liczby uczestników; nocleg czy bilety to koszty zmienne.',
       },

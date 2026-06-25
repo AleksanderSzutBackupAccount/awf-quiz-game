@@ -96,12 +96,12 @@ export const partC1: Topic[] = [
         type: 'abcd',
         q: 'Które trzy potrzeby psychologiczne wyróżnia teoria autodeterminacji Ryana i Deciego?',
         options: [
-          'Autonomia, kompetencja, relacje',
+          'Poznawcze, kulturowe, zdrowotne',
           'Fizjologiczne, bezpieczeństwa, uznania',
           'Ruch, odpoczynek, regeneracja',
-          'Poznawcze, kulturowe, zdrowotne',
+          'Autonomia, kompetencja, relacje',
         ],
-        correct: 0,
+        correct: 3,
         explain: 'Teoria autodeterminacji opiera się na potrzebie autonomii, kompetencji i relacji z innymi.',
       },
       {
@@ -201,8 +201,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który motyw uczestnictwa rodziny w turystyce wiąże się z uczeniem dzieci zasad społecznych przez obserwację?',
-        options: ['Integracyjny', 'Zdrowotny', 'Wychowawczy', 'Edukacyjny'],
-        correct: 2,
+        options: ['Wychowawczy', 'Zdrowotny', 'Integracyjny', 'Edukacyjny'],
+        correct: 0,
         explain: 'Motyw wychowawczy polega na tym, że dzieci uczą się zasad społecznych, współpracy i kultury przez obserwację i uczestnictwo.',
       },
       {
@@ -261,8 +261,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który rodzaj zabawy dzieci szczególnie wspiera logiczne myślenie?',
-        options: ['Zabawy ruchowe', 'Zabawy konstrukcyjne', 'Zabawy fabularne', 'Zabawy tematyczne'],
-        correct: 1,
+        options: ['Zabawy ruchowe', 'Zabawy tematyczne', 'Zabawy fabularne', 'Zabawy konstrukcyjne'],
+        correct: 3,
         explain: 'Zabawy konstrukcyjne (klocki, układanki) wspierają logiczne myślenie.',
       },
       {
@@ -301,8 +301,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Ile kolorów zaleca się stosować w spójnym stylu graficznym prezentacji?',
-        options: ['Maksymalnie 2-3', 'Co najmniej 5', 'Dowolnie wiele', 'Tylko czarny i biały'],
-        correct: 0,
+        options: ['Dowolnie wiele', 'Co najmniej 5', 'Maksymalnie 2-3', 'Tylko czarny i biały'],
+        correct: 2,
         explain: 'Zasada stylu graficznego zaleca używanie maksymalnie 2-3 kolorów dla zachowania spójności.',
       },
       {
@@ -352,8 +352,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Który system energetyczny dostarcza energii najszybciej, w krótkich i intensywnych wysiłkach?',
-        options: ['Metabolizm tlenowy', 'Glikoliza beztlenowa', 'System fosfagenowy (ATP)', 'Lipoliza'],
-        correct: 2,
+        options: ['Metabolizm tlenowy', 'System fosfagenowy (ATP)', 'Glikoliza beztlenowa', 'Lipoliza'],
+        correct: 1,
         explain: 'System fosfagenowy (ATP) dostarcza energii bardzo szybko i jest wykorzystywany w krótkich intensywnych wysiłkach.',
       },
       {
@@ -411,8 +411,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Styl życia, wartości i zainteresowania to kryterium segmentacji:',
-        options: ['Demograficzne', 'Geograficzne', 'Psychograficzne', 'Behawioralne'],
-        correct: 2,
+        options: ['Psychograficzne', 'Geograficzne', 'Demograficzne', 'Behawioralne'],
+        correct: 0,
         explain: 'Kryterium psychograficzne obejmuje styl życia, wartości, osobowość i zainteresowania.',
       },
       {
@@ -462,8 +462,8 @@ export const partC1: Topic[] = [
       {
         type: 'abcd',
         q: 'Różnica między introwertykami a ekstrawertykami w wyborze form czasu wolnego należy do czynników:',
-        options: ['Ekonomicznych', 'Psychologicznych', 'Demograficznych', 'Środowiskowych'],
-        correct: 1,
+        options: ['Ekonomicznych', 'Demograficznych', 'Psychologicznych', 'Środowiskowych'],
+        correct: 2,
         explain: 'Osobowość (introwertyk vs ekstrawertyk) to czynnik psychologiczny.',
       },
       {

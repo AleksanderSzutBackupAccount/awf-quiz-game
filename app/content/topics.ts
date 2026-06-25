@@ -55,8 +55,8 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Która funkcja czasu wolnego pełni rolę oczyszczającą emocje i rozładowującą napięcie?',
-        options: ['Kompensacyjna', 'Katartyczna', 'Kreacyjna', 'Regeneracyjna'],
-        correct: 1,
+        options: ['Kompensacyjna', 'Regeneracyjna', 'Kreacyjna', 'Katartyczna'],
+        correct: 3,
         explain:
           'Funkcja katartyczna oczyszcza emocje oraz rozładowuje stres i napięcie.',
       },
@@ -64,12 +64,12 @@ const core: Topic[] = [
         type: 'abcd',
         q: 'Funkcja kompensacyjna czasu wolnego polega na:',
         options: [
-          'twórczej realizacji przez sztukę i rękodzieło',
           'wyrównywaniu braków i niedostatków z innych sfer życia',
+          'twórczej realizacji przez sztukę i rękodzieło',
           'odpoczynku po wysiłku fizycznym',
           'budowaniu relacji w grupie',
         ],
-        correct: 1,
+        correct: 0,
         explain:
           'Funkcja kompensacyjna uzupełnia braki z innych stref życia (np. aktywność fizyczna, kontakt społeczny).',
       },
@@ -127,11 +127,11 @@ const core: Topic[] = [
         q: 'Które trzy potrzeby psychologiczne wskazuje teoria autodeterminacji Ryana i Deciego?',
         options: [
           'Fizjologiczne, bezpieczeństwa, uznania',
-          'Autonomia, kompetencja, relacje z innymi',
-          'Poznawcza, estetyczna, duchowa',
           'Regeneracja, kompensacja, kreacja',
+          'Poznawcza, estetyczna, duchowa',
+          'Autonomia, kompetencja, relacje z innymi',
         ],
-        correct: 1,
+        correct: 3,
         explain:
           'Teoria autodeterminacji opiera się na autonomii, kompetencji i relacjach z innymi.',
       },
@@ -205,8 +205,8 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Która witamina antyoksydacyjna działa głównie w środowisku wodnym organizmu?',
-        options: ['Witamina A', 'Witamina C', 'Witamina E', 'Koenzym Q10'],
-        correct: 1,
+        options: ['Witamina A', 'Koenzym Q10', 'Witamina E', 'Witamina C'],
+        correct: 3,
         explain:
           'Witamina C jest silnym antyoksydantem neutralizującym wolne rodniki w środowisku wodnym.',
       },
@@ -266,16 +266,16 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Który rodzaj błonnika w kontakcie z wodą tworzy żel i obniża poziom cholesterolu?',
-        options: ['Nierozpuszczalny', 'Rozpuszczalny', 'Oba tak samo', 'Żaden'],
-        correct: 1,
+        options: ['Nierozpuszczalny', 'Żaden', 'Oba tak samo', 'Rozpuszczalny'],
+        correct: 3,
         explain:
           'Błonnik rozpuszczalny pęcznieje, tworzy żel, stabilizuje glukozę i obniża cholesterol.',
       },
       {
         type: 'abcd',
         q: 'Jakie jest zalecane dzienne spożycie błonnika u dorosłych?',
-        options: ['5–10 g', '10–20 g', '25–40 g', '50–70 g'],
-        correct: 2,
+        options: ['5–10 g', '25–40 g', '10–20 g', '50–70 g'],
+        correct: 1,
         explain: 'Zalecenie dla dorosłych to 25–40 g błonnika dziennie.',
       },
       {
@@ -339,16 +339,16 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Hipertrofia mięśni jest charakterystyczną adaptacją dla treningu:',
-        options: ['wytrzymałościowego', 'siłowego', 'gibkościowego', 'o niskiej intensywności'],
-        correct: 1,
+        options: ['wytrzymałościowego', 'gibkościowego', 'siłowego', 'o niskiej intensywności'],
+        correct: 2,
         explain:
           'Hipertrofia (wzrost przekroju włókien) to typowa adaptacja do treningu siłowego.',
       },
       {
         type: 'abcd',
         q: 'Wzrost liczby i wydolności mitochondriów oraz VO₂ max to efekt treningu:',
-        options: ['siłowego', 'wytrzymałościowego', 'gibkościowego', 'oporowego'],
-        correct: 1,
+        options: ['siłowego', 'oporowego', 'gibkościowego', 'wytrzymałościowego'],
+        correct: 3,
         explain:
           'Adaptacje tlenowe (mitochondria, VO₂ max) są typowe dla treningu wytrzymałościowego.',
       },
@@ -395,8 +395,8 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Który styl kierowania zakłada konsultowanie decyzji z pracownikami?',
-        options: ['Autokratyczny', 'Demokratyczny', 'Liberalny', 'Dyrektywny'],
-        correct: 1,
+        options: ['Autokratyczny', 'Liberalny', 'Demokratyczny', 'Dyrektywny'],
+        correct: 2,
         explain:
           'W stylu demokratycznym kierownik konsultuje się z zespołem przed podjęciem decyzji.',
       },
@@ -470,20 +470,20 @@ const core: Topic[] = [
         type: 'abcd',
         q: 'Z perspektywy turysty (konsumenta) produkt turystyczny to przede wszystkim:',
         options: [
-          'zestaw usług i dóbr oferowanych do sprzedaży',
           'zestaw przeżyć, doświadczeń i korzyści',
+          'zestaw usług i dóbr oferowanych do sprzedaży',
           'wyłącznie baza noclegowa',
           'tylko transport i gastronomia',
         ],
-        correct: 1,
+        correct: 0,
         explain:
           'Dla turysty produkt to zestaw przeżyć, doświadczeń i korzyści; perspektywa firmy to zestaw usług/dóbr do sprzedaży.',
       },
       {
         type: 'abcd',
         q: 'Który z elementów jest niematerialnym składnikiem produktu turystycznego?',
-        options: ['Baza noclegowa', 'Atmosfera i wizerunek miejsca', 'Transport', 'Sprzęt turystyczny'],
-        correct: 1,
+        options: ['Baza noclegowa', 'Transport', 'Atmosfera i wizerunek miejsca', 'Sprzęt turystyczny'],
+        correct: 2,
         explain:
           'Elementy niematerialne to m.in. atmosfera, wizerunek miejsca, przeżycia i relacje społeczne.',
       },
@@ -535,16 +535,16 @@ const core: Topic[] = [
       {
         type: 'abcd',
         q: 'Która forma ochrony przyrody w Polsce jest uznawana za najwyższą?',
-        options: ['Park krajobrazowy', 'Pomnik przyrody', 'Park narodowy', 'Użytek ekologiczny'],
-        correct: 2,
+        options: ['Park krajobrazowy', 'Pomnik przyrody', 'Użytek ekologiczny', 'Park narodowy'],
+        correct: 3,
         explain:
           'Park narodowy to najwyższa forma ochrony — duże obszary i surowe zakazy.',
       },
       {
         type: 'abcd',
         q: 'Dąb Bartek to przykład:',
-        options: ['parku narodowego', 'pomnika przyrody', 'rezerwatu ścisłego', 'użytku ekologicznego'],
-        correct: 1,
+        options: ['parku narodowego', 'rezerwatu ścisłego', 'pomnika przyrody', 'użytku ekologicznego'],
+        correct: 2,
         explain:
           'Pojedyncze obiekty przyrodnicze (drzewa, głazy) to pomniki przyrody — np. Dąb Bartek.',
       },
@@ -604,12 +604,12 @@ const core: Topic[] = [
         type: 'abcd',
         q: 'Który krok należy do procedury check-in?',
         options: [
-          'Zwrot depozytu',
           'Autoryzacja płatności / preautoryzacja karty',
+          'Zwrot depozytu',
           'Wystawienie faktury końcowej',
           'Zwrot klucza do pokoju',
         ],
-        correct: 1,
+        correct: 0,
         explain:
           'Autoryzacja płatności (depozyt lub preautoryzacja karty) to element zameldowania (check-in).',
       },
@@ -668,19 +668,19 @@ const core: Topic[] = [
         q: 'Kto przyznaje kategorię (gwiazdki) obiektowi hotelarskiemu w Polsce?',
         options: [
           'Minister sportu',
-          'Marszałek województwa',
           'Burmistrz gminy',
+          'Marszałek województwa',
           'Polska Izba Hotelarstwa',
         ],
-        correct: 1,
+        correct: 2,
         explain:
           'Kategorię nadaje marszałek województwa na wniosek właściciela po kontroli zgodności z wymaganiami.',
       },
       {
         type: 'abcd',
         q: 'Ile minimum pokoi musi mieć hotel?',
-        options: ['5', '7', '10', '15'],
-        correct: 2,
+        options: ['5', '10', '7', '15'],
+        correct: 1,
         explain: 'Hotel to obiekt z minimum 10 pokojami; pensjonat — min. 7.',
       },
       {
@@ -723,12 +723,12 @@ const core: Topic[] = [
         type: 'abcd',
         q: 'Na którym etapie obsługi klienta zadajemy pytania otwarte o budżet i preferencje?',
         options: [
-          'Finalizacja sprzedaży',
           'Badanie potrzeb',
+          'Finalizacja sprzedaży',
           'Obsługa obiekcji',
           'Pożegnanie',
         ],
-        correct: 1,
+        correct: 0,
         explain:
           'Pytania otwarte o miejsce, termin, budżet i standard zadaje się na etapie badania potrzeb.',
       },
@@ -787,11 +787,11 @@ const core: Topic[] = [
         q: 'Który czynnik NIE jest typowym wyróżnikiem projektu outdoorowego?',
         options: [
           'Otwarta przestrzeń przystosowana i bezpieczna',
-          'Wysokie ryzyko uszczerbku na zdrowiu jako cel',
           'Integracja z otoczeniem',
+          'Wysokie ryzyko uszczerbku na zdrowiu jako cel',
           'Interakcja z uczestnikami',
         ],
-        correct: 1,
+        correct: 2,
         explain:
           'Outdoor nie skupia się na dużym ryzyku — kładzie nacisk na wątki kulturowe i interakcję z otoczeniem.',
       },
@@ -843,19 +843,19 @@ const core: Topic[] = [
         q: 'Które trzy komponenty łączą działania outdoor education?',
         options: [
           'Ekonomia, marketing, logistyka',
-          'Ekologia, rozwój umiejętności fizycznych, relacje interpersonalne',
-          'Ryzyko, rywalizacja, nagroda',
           'Historia, kultura, sztuka',
+          'Ryzyko, rywalizacja, nagroda',
+          'Ekologia, rozwój umiejętności fizycznych, relacje interpersonalne',
         ],
-        correct: 1,
+        correct: 3,
         explain:
           'Outdoor education łączy ekologię, rozwój umiejętności fizycznych oraz relacje interpersonalne.',
       },
       {
         type: 'abcd',
         q: 'Według Priesta i Gassa wynikiem adventure education jest:',
-        options: ['zysk finansowy', 'samodoskonalenie', 'zdobycie certyfikatu', 'wygrana w rywalizacji'],
-        correct: 1,
+        options: ['samodoskonalenie', 'zysk finansowy', 'zdobycie certyfikatu', 'wygrana w rywalizacji'],
+        correct: 0,
         explain:
           'Wynik to samodoskonalenie — rozwój potencjału i poprawa relacji z innymi i sobą.',
       },
