@@ -26,4 +26,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
     return
   }
   if (!approved) return navigateTo('/pending')
+
+  // Approved → ensure knowledge-base content is loaded before the page renders.
+  await useTopicsStore().load()
 })

@@ -1,21 +1,25 @@
-import { topics } from '~/content/topics'
 import { categories, getCategory } from '~/content/categories'
 import { specializations, getSpecialization } from '~/content/specializations'
+import { useTopicsStore } from '~/stores/topics'
 import type { SpecializationId, Topic } from '~/content/types'
 
+/**
+ * Reads knowledge-base content from the topics store (fetched from Supabase).
+ * Categories/specializations are non-sensitive labels and stay local.
+ */
 export function useContent() {
-  const allTopics = topics
+  const store = useTopicsStore()
   const allCategories = categories
   const allSpecializations = specializations
 
   // Topics for a specialization = common ('wszyscy') + specialization-specific.
   const topicsBySpec = (spec: SpecializationId) =>
-    allTopics
+    store.topics
       .filter((t) => t.track === 'wszyscy' || t.track === spec)
       .sort((a, b) => a.number - b.number)
 
   const topicById = (id: string): Topic | undefined =>
-    allTopics.find((t) => t.id === id)
+    store.topics.find((t) => t.id === id)
 
   const categoriesForSpec = (spec: SpecializationId) => {
     const used = new Set(topicsBySpec(spec).map((t) => t.category))
@@ -26,7 +30,9 @@ export function useContent() {
     t.questions.filter((q) => q.type !== 'flash').length
 
   return {
-    allTopics,
+    get allTopics() {
+      return store.topics
+    },
     allCategories,
     allSpecializations,
     topicsBySpec,

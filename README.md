@@ -104,8 +104,23 @@ Jednorazowa konfiguracja:
   i linkiem „Przejdź do wiki →”. Przycisk „Powtórz błędne”.
 - **Postęp nauki** zapisywany lokalnie (opanowane zagadnienia, historia).
 
-## Jak dodać kolejne zagadnienia
-Treść jest sterowana danymi — **nie trzeba zmieniać kodu**. Edytuj pliki w `app/content/`:
+## Ochrona treści (RLS)
+Treść (artykuły wiki + pytania i odpowiedzi) **nie jest w bundlu frontendu** — jest w tabeli
+`public.topics` w Supabase, z RLS `topics_select_approved` (`using ( public.is_approved() )`).
+Czyli bez **zalogowanego i zatwierdzonego** konta zapytanie zwraca **0 wierszy** (zweryfikowane:
+anon → `[]`, approved → 86). Frontend pobiera treść w czasie działania (`app/stores/topics.ts`,
+ładowane w `approval.global.ts`). Kategorie/specjalizacje (same etykiety) zostają lokalnie.
+
+## Jak dodać/zmienić zagadnienia
+Źródłem prawdy jest `app/content/topics.ts` (+ `parts/*`) — **nie trafia do bundla**, służy do
+wygenerowania migracji z danymi:
+```bash
+node scripts/gen-topics-migration.mjs      # regeneruje supabase/migrations/...topics_content.sql
+supabase migration up                      # wgrywa do lokalnej bazy (insert ... on conflict do update)
+```
+Na produkcję wjedzie automatycznie przez CI (`supabase db push`) po pushu do `main`.
+
+Edytuj pliki w `app/content/`:
 - `topics.ts` — dodaj obiekt `Topic`. Pole **`track`**: `'wszyscy'` (wspólne dla wszystkich
   specjalizacji), `'hotelarstwo'` lub `'przygodowa'`. Dalej `category`, `wiki[]` oraz
   `questions[]` (typy `abcd` / `tf` / `flash`).

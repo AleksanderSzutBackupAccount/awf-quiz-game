@@ -1,4 +1,5 @@
 import { useProgressStore } from '~/stores/progress'
+import { useTopicsStore } from '~/stores/topics'
 
 /**
  * Syncs the learning-progress store with Supabase (table user_progress).
@@ -92,6 +93,7 @@ export default defineNuxtPlugin(() => {
       } else if (!u && prev) {
         ready = false
         progress.clearUser()
+        useTopicsStore().clear()
       }
     },
     { immediate: true }
