@@ -38,8 +38,11 @@ async function load() {
 watch(active, load)
 onMounted(() => {
   spec.hydrate()
-  if (spec.current) active.value = spec.current
-  load()
+  if (spec.current) {
+    active.value = spec.current // watcher fires load() automatically
+  } else {
+    load() // value unchanged → watcher won't fire, so load manually
+  }
 })
 </script>
 
