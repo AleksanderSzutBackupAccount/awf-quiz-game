@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { useContent } from '~/composables/useContent'
 import { useProgressStore } from '~/stores/progress'
-import type { Topic } from '~/content/types'
+import type { TopicMeta } from '~/content/types'
 
-const props = defineProps<{ topic: Topic }>()
+const props = defineProps<{ topic: TopicMeta }>()
 const { getCategory, countQuestions } = useContent()
 const progress = useProgressStore()
 

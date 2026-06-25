@@ -60,3 +60,21 @@ export interface Topic {
   wiki: WikiBlock[]
   questions: Question[]
 }
+
+/**
+ * Lightweight topic descriptor used for lists/navigation. Fetched from the
+ * `topics_meta` view — it carries NO wiki bodies and NO question payloads, only
+ * per-type question counts. The heavy `wiki`/`questions` are loaded on demand
+ * (get_topic / get_questions) so the whole knowledge base is never dumped at once.
+ */
+export interface TopicMeta {
+  id: string
+  track: TrackId
+  category: string
+  number: number
+  title: string
+  summary: string
+  abcdCount: number
+  tfCount: number
+  flashCount: number
+}

@@ -1,6 +1,6 @@
 import { useContent } from '~/composables/useContent'
 import { useProgressStore } from '~/stores/progress'
-import type { SpecializationId, Topic } from '~/content/types'
+import type { SpecializationId, TopicMeta } from '~/content/types'
 
 export type LevelState = 'locked' | 'unlocked' | 'completed'
 
@@ -11,7 +11,7 @@ export interface Level {
   categoryId: string
   title: string
   icon: string
-  topics: Topic[]
+  topics: TopicMeta[]
   masteredCount: number
   total: number
   state: LevelState

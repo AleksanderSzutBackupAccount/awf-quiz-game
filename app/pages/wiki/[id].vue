@@ -1,23 +1,33 @@
 <script setup lang="ts">
 import { useContent } from '~/composables/useContent'
+import { useTopicsStore } from '~/stores/topics'
 import { useReveal } from '~/composables/useReveal'
+import type { Topic } from '~/content/types'
 
 const route = useRoute()
+const store = useTopicsStore()
 const { topicById, topicsBySpec, getCategory, countQuestions } = useContent()
 const { reveal } = useReveal()
 
 const id = computed(() => route.params.id as string)
+// Lightweight metadata (header, navigation, question count) from the loaded list.
 const topic = computed(() => topicById(id.value))
+// Full topic (wiki bodies) fetched on demand and cached in the store.
+const full = ref<Topic | null>(null)
 
 // 404 if topic id is invalid
 if (!topic.value) {
   throw createError({ statusCode: 404, statusMessage: 'Nie znaleziono zagadnienia', fatal: true })
 }
 
+async function loadFull() {
+  full.value = await store.loadTopic(id.value)
+}
+
 const cat = computed(() => (topic.value ? getCategory(topic.value.category) : undefined))
 
 const siblings = computed(() =>
-  topic.value ? topicsBySpec(topic.value.specialization) : []
+  topic.value ? topicsBySpec(topic.value.track) : []
 )
 const idx = computed(() => siblings.value.findIndex((t) => t.id === id.value))
 const prev = computed(() => (idx.value > 0 ? siblings.value[idx.value - 1] : null))
@@ -34,7 +44,7 @@ function slug(s: string) {
     .replace(/(^-|-$)/g, '')
 }
 const toc = computed(() =>
-  (topic.value?.wiki ?? [])
+  (full.value?.wiki ?? [])
     .filter((b) => b.heading)
     .map((b) => ({ label: b.heading as string, id: slug(b.heading as string) }))
 )
@@ -44,8 +54,15 @@ useHead(() => ({
 }))
 
 const rootRef = ref<HTMLElement | null>(null)
-onMounted(() => nextTick(() => reveal(rootRef.value)))
-watch(id, () => nextTick(() => reveal(rootRef.value)))
+onMounted(async () => {
+  await loadFull()
+  nextTick(() => reveal(rootRef.value))
+})
+watch(id, async () => {
+  full.value = null
+  await loadFull()
+  nextTick(() => reveal(rootRef.value))
+})
 </script>
 
 <template>
@@ -74,7 +91,8 @@ watch(id, () => nextTick(() => reveal(rootRef.value)))
 
       <div class="art-body reveal" :data-reveal-delay="0.06">
         <GlassCard class="art-content">
-          <WikiArticle :blocks="topic.wiki" />
+          <WikiArticle v-if="full" :blocks="full.wiki" />
+          <p v-else class="muted">Ładowanie treści…</p>
         </GlassCard>
 
         <!-- mobile quiz CTA -->

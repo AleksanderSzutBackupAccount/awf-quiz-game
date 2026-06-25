@@ -27,6 +27,7 @@ export default defineNuxtRouteMiddleware(async (to) => {
   }
   if (!approved) return navigateTo('/pending')
 
-  // Approved → ensure knowledge-base content is loaded before the page renders.
-  await useTopicsStore().load()
+  // Approved → ensure the lightweight knowledge-base list is loaded before the
+  // page renders. Full wiki/questions are fetched on demand per topic/quiz.
+  await useTopicsStore().loadMeta()
 })

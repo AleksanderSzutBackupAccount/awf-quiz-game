@@ -1,11 +1,13 @@
 <script setup lang="ts">
 import { useSpecializationStore } from '~/stores/specialization'
 import { useContent } from '~/composables/useContent'
+import { useTopicsStore } from '~/stores/topics'
 import { useQuizStore, type QuizMode, type SessionItem } from '~/stores/quiz'
 import { useReveal } from '~/composables/useReveal'
 
 const spec = useSpecializationStore()
 const quiz = useQuizStore()
+const store = useTopicsStore()
 const { topicsBySpec, categoriesForSpec, topicById, getSpecialization } = useContent()
 const { reveal } = useReveal()
 const route = useRoute()
@@ -53,17 +55,18 @@ const scopeTopics = computed(() => {
   return all
 })
 
-// available question pool for chosen mode
-const pool = computed<SessionItem[]>(() =>
-  scopeTopics.value.flatMap((t) =>
-    t.questions
-      .filter((q) => q.type === mode.value)
-      .map((q) => ({ topicId: t.id, topicTitle: t.title, question: q }))
-  )
+// Available question pool SIZE for the chosen mode — read straight from the
+// metadata counts (no questions fetched yet; that happens on start()).
+const poolCount = computed(() =>
+  scopeTopics.value.reduce((n, t) => {
+    if (mode.value === 'abcd') return n + t.abcdCount
+    if (mode.value === 'tf') return n + t.tfCount
+    return n + t.flashCount
+  }, 0)
 )
 
 const countOptions = computed(() => {
-  const n = pool.value.length
+  const n = poolCount.value
   return [5, 10, 20].filter((c) => c < n).concat(n)
 })
 
@@ -88,19 +91,33 @@ function shuffle<T>(arr: T[]): T[] {
   return a
 }
 
-const canStart = computed(() => pool.value.length > 0 && !!spec.current)
+const canStart = computed(() => poolCount.value > 0 && !!spec.current)
+const starting = ref(false)
 
-function start() {
-  if (!canStart.value || !spec.current) return
-  const limit = mode.value === 'flash' ? pool.value.length : count.value
-  const items = shuffle(pool.value).slice(0, Math.min(limit, pool.value.length))
-  quiz.start({
-    mode: mode.value,
-    scopeLabel: scopeLabel.value,
-    specialization: spec.current,
-    items,
-  })
-  router.push('/quiz/run')
+async function start() {
+  if (!canStart.value || !spec.current || starting.value) return
+  starting.value = true
+  try {
+    // Fetch questions for the selected scope on demand, then build the session.
+    const byId = await store.loadQuestions(scopeTopics.value.map((t) => t.id))
+    const pool: SessionItem[] = scopeTopics.value.flatMap((t) =>
+      (byId[t.id] ?? [])
+        .filter((q) => q.type === mode.value)
+        .map((q) => ({ topicId: t.id, topicTitle: t.title, question: q }))
+    )
+    if (!pool.length) return
+    const limit = mode.value === 'flash' ? pool.length : count.value
+    const items = shuffle(pool).slice(0, Math.min(limit, pool.length))
+    quiz.start({
+      mode: mode.value,
+      scopeLabel: scopeLabel.value,
+      specialization: spec.current,
+      items,
+    })
+    router.push('/quiz/run')
+  } finally {
+    starting.value = false
+  }
 }
 </script>
 
@@ -171,7 +188,7 @@ function start() {
               :class="{ active: count === c }"
               @click="count = c"
             >
-              {{ c === pool.length ? `Wszystkie (${c})` : c }}
+              {{ c === poolCount ? `Wszystkie (${c})` : c }}
             </button>
           </div>
         </template>
@@ -183,14 +200,14 @@ function start() {
             <p class="start-summary">
               <strong>{{ modes.find((m) => m.id === mode)?.name }}</strong>
               · {{ scopeLabel }} ·
-              {{ mode === 'flash' ? `${pool.length} fiszek` : `${Math.min(count, pool.length)} pytań` }}
+              {{ mode === 'flash' ? `${poolCount} fiszek` : `${Math.min(count, poolCount)} pytań` }}
             </p>
           </div>
-          <button class="btn btn-primary btn-lg" :disabled="!canStart" @click="start">
-            Rozpocznij →
+          <button class="btn btn-primary btn-lg" :disabled="!canStart || starting" @click="start">
+            {{ starting ? 'Ładowanie…' : 'Rozpocznij →' }}
           </button>
         </GlassCard>
-        <p v-if="!pool.length" class="muted no-pool">
+        <p v-if="!poolCount" class="muted no-pool">
           Brak pytań tego typu w wybranym zakresie — zmień tryb lub zakres.
         </p>
       </div>
