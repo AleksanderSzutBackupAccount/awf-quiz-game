@@ -71,7 +71,7 @@ export default defineNuxtPlugin(() => {
   async function pullMergePush() {
     const uid = await authUid()
     if (!uid) return
-    progress.hydrate()
+    progress.setUser(uid) // load this account's local cache (per-user key)
     const { data } = await supabase
       .from('user_progress')
       .select('data')
@@ -91,6 +91,7 @@ export default defineNuxtPlugin(() => {
         await pullMergePush()
       } else if (!u && prev) {
         ready = false
+        progress.clearUser()
       }
     },
     { immediate: true }

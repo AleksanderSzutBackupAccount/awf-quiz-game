@@ -1,7 +1,8 @@
 import { defineStore } from 'pinia'
 import type { SpecializationId } from '~/content/types'
 
-const KEY = 'awf:progress'
+// localStorage cache is namespaced per account so progress never leaks between users.
+const keyFor = (userId: string | null) => `awf:progress:${userId ?? 'guest'}`
 
 export const XP_PER_CORRECT = 10
 export const XP_PER_LEVEL = 100 // XP needed per rank
@@ -32,6 +33,7 @@ interface ProgressState {
   xp: number
   celebratedLevels: string[]
   hydrated: boolean
+  userId: string | null
 }
 
 export const useProgressStore = defineStore('progress', {
@@ -41,6 +43,7 @@ export const useProgressStore = defineStore('progress', {
     xp: 0,
     celebratedLevels: [],
     hydrated: false,
+    userId: null,
   }),
   getters: {
     topicMastery: (s) => (topicId: string) => s.mastery[topicId] ?? { correct: 0, seen: 0 },
@@ -68,7 +71,7 @@ export const useProgressStore = defineStore('progress', {
     hydrate() {
       if (this.hydrated || !import.meta.client) return
       try {
-        const raw = localStorage.getItem(KEY)
+        const raw = localStorage.getItem(keyFor(this.userId))
         if (raw) {
           const parsed = JSON.parse(raw)
           this.mastery = parsed.mastery ?? {}
@@ -81,10 +84,30 @@ export const useProgressStore = defineStore('progress', {
       }
       this.hydrated = true
     },
+    // Bind progress to a logged-in account: load that account's local cache.
+    setUser(userId: string) {
+      if (this.userId === userId && this.hydrated) return
+      this.userId = userId
+      this.mastery = {}
+      this.history = []
+      this.xp = 0
+      this.celebratedLevels = []
+      this.hydrated = false
+      this.hydrate()
+    },
+    // On logout: forget the account's progress from memory + cache key.
+    clearUser() {
+      this.userId = null
+      this.mastery = {}
+      this.history = []
+      this.xp = 0
+      this.celebratedLevels = []
+      this.hydrated = false
+    },
     persist() {
       if (!import.meta.client) return
       localStorage.setItem(
-        KEY,
+        keyFor(this.userId),
         JSON.stringify({
           mastery: this.mastery,
           history: this.history.slice(-50),

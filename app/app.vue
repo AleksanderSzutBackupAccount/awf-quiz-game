@@ -1,13 +1,11 @@
 <script setup lang="ts">
 import { useSpecializationStore } from '~/stores/specialization'
-import { useProgressStore } from '~/stores/progress'
 
-// Hydrate persisted state on client mount.
+// Specialization is a UI preference (kept globally). Learning progress is bound
+// to the logged-in account and loaded by the progressSync plugin on login.
 const spec = useSpecializationStore()
-const progress = useProgressStore()
 onMounted(() => {
   spec.hydrate()
-  progress.hydrate()
 })
 </script>
 
