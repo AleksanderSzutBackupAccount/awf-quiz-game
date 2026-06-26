@@ -15,7 +15,8 @@ export const useSpecializationStore = defineStore('specialization', {
     hydrate() {
       if (this.hydrated || !import.meta.client) return
       const saved = localStorage.getItem(KEY) as SpecializationId | null
-      if (saved === 'hotelarstwo' || saved === 'przygodowa') this.current = saved
+      if (saved === 'hotelarstwo' || saved === 'przygodowa' || saved === 'rekreacja')
+        this.current = saved
       this.hydrated = true
     },
     choose(id: SpecializationId) {

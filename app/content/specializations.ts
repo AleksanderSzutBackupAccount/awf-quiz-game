@@ -21,6 +21,16 @@ export const specializations: Specialization[] = [
     accent: 'linear-gradient(120deg, #ff6ad5, #fbbf24)',
     icon: '🧗',
   },
+  {
+    id: 'rekreacja',
+    name: 'Rekreacja',
+    short: 'Rekreacja',
+    tagline: 'Aktywność • zdrowie • imprezy i gry',
+    description:
+      'Zagadnienia wspólne dla wszystkich + specjalizacja rekreacja: aktywność fizyczna i zdrowie różnych grup wiekowych, organizacja imprez rekreacyjnych, gry i zabawy ruchowe oraz folklor.',
+    accent: 'linear-gradient(120deg, #34d399, #2bd2ff)',
+    icon: '🤸',
+  },
 ]
 
 export const getSpecialization = (id: string) =>

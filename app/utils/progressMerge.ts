@@ -9,7 +9,7 @@ export interface ProgressSnap {
   celebratedLevels: string[]
 }
 
-const SPECS = ['hotelarstwo', 'przygodowa'] as const
+const SPECS = ['hotelarstwo', 'przygodowa', 'rekreacja'] as const
 
 export function mergeProgress(
   local: Partial<ProgressSnap>,

@@ -47,7 +47,7 @@ export const useProgressStore = defineStore('progress', {
     mastery: {},
     history: [],
     xp: 0,
-    xpBySpec: { hotelarstwo: 0, przygodowa: 0 },
+    xpBySpec: { hotelarstwo: 0, przygodowa: 0, rekreacja: 0 },
     celebratedLevels: [],
     hydrated: false,
     userId: null,
@@ -85,7 +85,7 @@ export const useProgressStore = defineStore('progress', {
           this.mastery = parsed.mastery ?? {}
           this.history = parsed.history ?? []
           this.xp = parsed.xp ?? 0
-          this.xpBySpec = parsed.xpBySpec ?? { hotelarstwo: 0, przygodowa: 0 }
+          this.xpBySpec = parsed.xpBySpec ?? { hotelarstwo: 0, przygodowa: 0, rekreacja: 0 }
           this.celebratedLevels = parsed.celebratedLevels ?? []
         }
       } catch {
@@ -100,7 +100,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
-      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0, rekreacja: 0 }
       this.celebratedLevels = []
       this.hydrated = false
       this.hydrate()
@@ -111,7 +111,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
-      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0, rekreacja: 0 }
       this.celebratedLevels = []
       this.hydrated = false
     },
@@ -162,7 +162,7 @@ export const useProgressStore = defineStore('progress', {
       this.mastery = {}
       this.history = []
       this.xp = 0
-      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0 }
+      this.xpBySpec = { hotelarstwo: 0, przygodowa: 0, rekreacja: 0 }
       this.celebratedLevels = []
       this.persist()
     },

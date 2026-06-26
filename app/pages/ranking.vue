@@ -12,6 +12,7 @@ const { fetchLeaderboard } = useLeaderboard()
 const SPECS: { id: SpecializationId; label: string }[] = [
   { id: 'hotelarstwo', label: 'Hotelarstwo' },
   { id: 'przygodowa', label: 'Przygodowa' },
+  { id: 'rekreacja', label: 'Rekreacja' },
 ]
 
 const active = ref<SpecializationId>('hotelarstwo')

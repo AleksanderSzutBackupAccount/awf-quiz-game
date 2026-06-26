@@ -8,6 +8,12 @@ import { partH1 } from './parts/part_h1'
 import { partP1 } from './parts/part_p1'
 import { partP2 } from './parts/part_p2'
 import { partP3 } from './parts/part_p3'
+import { partR1 } from './parts/part_r1'
+import { partR2 } from './parts/part_r2'
+import { partR3 } from './parts/part_r3'
+import { partR4 } from './parts/part_r4'
+import { partR5 } from './parts/part_r5'
+import { partR6 } from './parts/part_r6'
 
 /**
  * Treść zagadnień opracowana na podstawie materiałów źródłowych z folderu `baza/`.
@@ -887,4 +893,10 @@ export const topics: Topic[] = [
   ...partP1,
   ...partP2,
   ...partP3,
+  ...partR1,
+  ...partR2,
+  ...partR3,
+  ...partR4,
+  ...partR5,
+  ...partR6,
 ]

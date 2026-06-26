@@ -88,8 +88,8 @@ Jednorazowa konfiguracja:
 5. Frontend (Nuxt) hostuj osobno (np. Vercel/Netlify/Cloudflare) z env `SUPABASE_URL`, `SUPABASE_KEY`, `SITE_URL`.
 
 ## Funkcje
-- **Wybór specjalizacji na starcie**: **Hotelarstwo** oraz **Turystyka Przygodowa**.
-  Zagadnienia wspólne (track `wszyscy`, plik „Licencjat — wszyscy”) widać w obu
+- **Wybór specjalizacji na starcie**: **Hotelarstwo**, **Turystyka Przygodowa** oraz **Rekreacja**.
+  Zagadnienia wspólne (track `wszyscy`, plik „Licencjat — wszyscy”) widać we wszystkich
   specjalizacjach, a do nich dochodzą zagadnienia specjalizacyjne. Można zmienić w nagłówku.
 - **Grywalizacja — ścieżka nauki**: poziomy (kolejne kategorie) z odblokowywaniem,
   stanami zablokowany / aktywny / ukończony, paskiem XP i rangami. Postępy zwieńczone
@@ -127,9 +127,10 @@ Edytuj pliki w `app/content/`:
 - `categories.ts` — kategorie (= poziomy ścieżki nauki, w kolejności), `specializations.ts` — specjalizacje.
 
 Materiały źródłowe w `baza/`: `Licencjat - wszyscy.pdf` (wspólne), `specjalizacja hotelarstwo.pdf`,
-`specjalizacja przygodowa.docx`. Opracowano **86 zagadnień** (52 wspólne + 5 hotelarstwo +
-29 przygodowa). Bazowe zagadnienia są w `topics.ts`, reszta w plikach `app/content/parts/*.ts`
-(importowane i scalane na końcu `topics.ts`). Hotelarstwo widzi 57 zagadnień, Przygodowa — 81.
+`specjalizacja przygodowa.docx`, `Licencjat (1).pdf` (sekcja Rekreacja od str. 65). Opracowano
+**116 zagadnień** (52 wspólne + 5 hotelarstwo + 29 przygodowa + 30 rekreacja). Bazowe zagadnienia
+są w `topics.ts`, reszta w plikach `app/content/parts/*.ts` (importowane i scalane na końcu
+`topics.ts`). Hotelarstwo widzi 57 zagadnień, Przygodowa — 81, Rekreacja — 82.
 
 ## Struktura
 ```

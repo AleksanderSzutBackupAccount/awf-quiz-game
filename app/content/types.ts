@@ -1,5 +1,5 @@
 /** Choosable specializations. */
-export type SpecializationId = 'hotelarstwo' | 'przygodowa'
+export type SpecializationId = 'hotelarstwo' | 'przygodowa' | 'rekreacja'
 
 /** Which study track a topic belongs to: common for everyone, or a specialization. */
 export type TrackId = 'wszyscy' | SpecializationId
