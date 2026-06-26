@@ -122,8 +122,8 @@ Na produkcję wjedzie automatycznie przez CI (`supabase db push`) po pushu do `m
 
 Edytuj pliki w `app/content/`:
 - `topics.ts` — dodaj obiekt `Topic`. Pole **`track`**: `'wszyscy'` (wspólne dla wszystkich
-  specjalizacji), `'hotelarstwo'` lub `'przygodowa'`. Dalej `category`, `wiki[]` oraz
-  `questions[]` (typy `abcd` / `tf` / `flash`).
+  specjalizacji), `'hotelarstwo'`, `'przygodowa'` lub `'rekreacja'`. Dalej `category`, `wiki[]`
+  oraz `questions[]` (typy `abcd` / `tf` / `flash`).
 - `categories.ts` — kategorie (= poziomy ścieżki nauki, w kolejności), `specializations.ts` — specjalizacje.
 
 Materiały źródłowe w `baza/`: `Licencjat - wszyscy.pdf` (wspólne), `specjalizacja hotelarstwo.pdf`,
@@ -131,6 +131,31 @@ Materiały źródłowe w `baza/`: `Licencjat - wszyscy.pdf` (wspólne), `specjal
 **116 zagadnień** (52 wspólne + 5 hotelarstwo + 29 przygodowa + 30 rekreacja). Bazowe zagadnienia
 są w `topics.ts`, reszta w plikach `app/content/parts/*.ts` (importowane i scalane na końcu
 `topics.ts`). Hotelarstwo widzi 57 zagadnień, Przygodowa — 81, Rekreacja — 82.
+
+## Testy i CI/CD
+Trzy poziomy testów (bez potrzeby działającego Supabase):
+- **Jednostkowe** (`tests/unit/`, Vitest) — spójność treści (unikalne id, poprawne
+  pytania ABCD/PF/fiszki, znane kategorie/tracki, liczby zagadnień per specjalizacja),
+  `mergeProgress`, progi rang, narzędzia rankingu.
+- **Funkcjonalne** (`tests/functional/`, Vitest + happy-dom) — logika store'ów Pinia
+  (sesja quizu, XP/postęp, filtrowanie `topicsBySpec`) oraz montaż komponentu
+  `TrueFalseQuestion.vue` (`@vue/test-utils`).
+- **E2E smoke** (`tests/e2e/`, Playwright/Chromium) — uruchamia zbudowaną aplikację na
+  zaślepkach Supabase i sprawdza, że bramka logowania kieruje niezalogowanych na `/login`.
+
+```bash
+npm test           # testy jednostkowe + funkcjonalne (Vitest)
+npm run test:watch # tryb watch
+npm run build && npm run test:e2e   # smoke e2e (najpierw build .output)
+```
+
+**Bramka wdrożenia (Vercel).** `vercel.json` ustawia `buildCommand` na `npm run vercel-build`
+= `vitest run && nuxt build`. Jeśli testy nie przejdą, **build Vercela kończy się błędem i nowy
+deploy się nie pojawia** (poprzedni zostaje aktywny) — bez sekretów ani zmian w dashboardzie,
+przy zachowanym połączeniu z repo. Workflow `.github/workflows/ci.yml` dodatkowo odpala testy
+jednostkowe/funkcjonalne i smoke e2e na każdym pushu i PR (e2e nie da się sensownie uruchomić
+w kroku build Vercela). Aby e2e też twardo blokowało merge, ustaw check `CI` jako wymagany w
+ochronie gałęzi `main`.
 
 ## Struktura
 ```
