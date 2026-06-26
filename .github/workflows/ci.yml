@@ -58,3 +58,45 @@ jobs:
           path: playwright-report/
           retention-days: 7
           if-no-files-found: ignore
+
+  e2e-full:
+    name: E2E full journey (Playwright + local Supabase)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      - name: Start local Supabase (boots stack + applies migrations & content)
+        run: supabase start
+      - name: Export local Supabase connection details
+        run: |
+          eval "$(supabase status -o env)"
+          {
+            echo "SUPABASE_URL=$API_URL"
+            echo "SUPABASE_KEY=$ANON_KEY"
+            echo "SUPABASE_SERVICE_ROLE_KEY=$SERVICE_ROLE_KEY"
+          } >> "$GITHUB_ENV"
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+      - name: Build app (pointed at local Supabase)
+        run: npm run build
+        env:
+          SITE_URL: http://127.0.0.1:3100
+      - name: Run full journey
+        run: npm run test:e2e:full
+      - name: Stop local Supabase
+        if: ${{ always() }}
+        run: supabase stop --no-backup
+      - uses: actions/upload-artifact@v4
+        if: ${{ !cancelled() }}
+        with:
+          name: playwright-report-full
+          path: playwright-report/
+          retention-days: 7
+          if-no-files-found: ignore
