@@ -140,31 +140,30 @@ Trzy poziomy testów (bez potrzeby działającego Supabase):
 - **Funkcjonalne** (`tests/functional/`, Vitest + happy-dom) — logika store'ów Pinia
   (sesja quizu, XP/postęp, filtrowanie `topicsBySpec`) oraz montaż komponentu
   `TrueFalseQuestion.vue` (`@vue/test-utils`).
-- **E2E smoke** (`tests/e2e/`, Playwright/Chromium) — uruchamia zbudowaną aplikację na
-  zaślepkach Supabase i sprawdza, że bramka logowania kieruje niezalogowanych na `/login`
-  (bez backendu, szybkie).
-- **E2E pełny przepływ** (`tests/e2e-full/`, Playwright + **lokalne Supabase**) — cała ścieżka
-  użytkownika: logowanie → wybór specjalizacji **Rekreacja** → baza wiedzy → ustawienie i
-  rozegranie quizu ABCD → ekran wyników. `global-setup.ts` seeduje zatwierdzonego usera
-  testowego (klucze lokalnego Supabase to standardowe klucze demo, nie sekrety).
+- **E2E** (`tests/e2e/` + `tests/e2e-full/`, Playwright/Chromium, **lokalne Supabase**) —
+  aplikacja wymaga osiągalnego backendu do SSR, więc cały e2e działa na lokalnym Supabase:
+  - smoke (`tests/e2e`): bramka logowania kieruje niezalogowanych na `/login`,
+  - pełny przepływ (`tests/e2e-full`): logowanie → wybór specjalizacji **Rekreacja** → baza
+    wiedzy → ustawienie i rozegranie quizu ABCD → ekran wyników.
+  `global-setup.ts` seeduje zatwierdzonego usera testowego (klucze lokalnego Supabase to
+  standardowe klucze demo, nie sekrety).
 
 ```bash
 npm test           # testy jednostkowe + funkcjonalne (Vitest)
 npm run test:watch # tryb watch
-npm run build && npm run test:e2e        # smoke e2e (zaślepki Supabase, port 3000)
 
-# pełny przepływ (wymaga `supabase start` i treści w bazie):
+# e2e (wymaga `supabase start` z treścią w bazie):
 supabase start
 SUPABASE_URL=http://127.0.0.1:54321 SUPABASE_KEY=<anon> npm run build
-npm run test:e2e:full                    # login → Rekreacja → wiki → quiz → wyniki (port 3100)
+npm run test:e2e   # smoke + pełny przepływ (port 3100)
 ```
 
 **Bramka wdrożenia (Vercel).** `vercel.json` ustawia `buildCommand` na `npm run vercel-build`
 = `vitest run && nuxt build`. Jeśli testy nie przejdą, **build Vercela kończy się błędem i nowy
 deploy się nie pojawia** (poprzedni zostaje aktywny) — bez sekretów ani zmian w dashboardzie,
 przy zachowanym połączeniu z repo. Workflow `.github/workflows/ci.yml` dodatkowo odpala testy
-jednostkowe/funkcjonalne, smoke e2e oraz **pełny przepływ e2e** (job `e2e-full` startuje lokalne
-Supabase i przechodzi całą ścieżkę) na każdym pushu i PR — e2e nie da się sensownie uruchomić
+jednostkowe/funkcjonalne (job `unit`) oraz e2e — smoke i pełny przepływ — na lokalnym Supabase
+(job `e2e` startuje `supabase start`) na każdym pushu i PR; e2e nie da się sensownie uruchomić
 w kroku build Vercela. Aby e2e też twardo blokowało merge, ustaw checki `CI` jako wymagane w
 ochronie gałęzi `main`.
 

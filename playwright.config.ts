@@ -1,40 +1,39 @@
 import { defineConfig, devices } from '@playwright/test'
+import { fileURLToPath } from 'node:url'
+import { APP_PORT, APP_URL, SUPABASE_URL, SUPABASE_ANON_KEY } from './tests/e2e-full/local-supabase'
 
-// Smoke e2e: the whole app is gated behind Supabase login + account approval,
-// so these tests deliberately stay on the PUBLIC surface — they boot the built
-// app against a dummy Supabase config and assert that unauthenticated users are
-// correctly funnelled to /login and that the login page renders without errors.
-// (Deeper, authenticated flows would need a live Supabase + seeded approved
-// user; out of scope here.)
-const PORT = 3000
-const BASE_URL = `http://127.0.0.1:${PORT}`
-
-// Dummy Supabase values: the @nuxtjs/supabase module only needs the env vars to
-// be present to boot. No real backend is contacted by the smoke tests.
-const dummyEnv = {
-  SUPABASE_URL: 'https://dummy.supabase.co',
-  SUPABASE_KEY: 'dummy-anon-key-for-smoke-tests',
-  SITE_URL: BASE_URL,
-}
-
+// All e2e runs against a LOCAL Supabase (`supabase start`). The app needs a
+// reachable backend to server-render at all (an unreachable/dummy Supabase
+// makes SSR throw), so both the public-surface smoke specs (tests/e2e) and the
+// full authenticated journey (tests/e2e-full) share one real backend.
+// global-setup seeds an approved test user used by the journey test.
 export default defineConfig({
-  testDir: './tests/e2e',
-  fullyParallel: true,
+  testDir: './tests',
+  testMatch: ['e2e/**/*.spec.ts', 'e2e-full/**/*.spec.ts'],
+  globalSetup: fileURLToPath(new URL('./tests/e2e-full/global-setup.ts', import.meta.url)),
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
-  retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  retries: process.env.CI ? 1 : 0,
+  workers: 1,
   reporter: process.env.CI ? [['github'], ['list']] : 'list',
   use: {
-    baseURL: BASE_URL,
+    baseURL: APP_URL,
     trace: 'on-first-retry',
   },
   projects: [{ name: 'chromium', use: { ...devices['Desktop Chrome'] } }],
-  // Serve the production build. Run `npm run build` first (CI does this).
+  // Serve the production build (built against the local Supabase). CI builds
+  // first; locally run `npm run build` with the local SUPABASE_URL/KEY first.
   webServer: {
     command: 'node .output/server/index.mjs',
-    url: BASE_URL,
+    url: APP_URL,
     timeout: 120_000,
     reuseExistingServer: !process.env.CI,
-    env: { ...dummyEnv, NITRO_PORT: String(PORT), PORT: String(PORT) },
+    env: {
+      SUPABASE_URL,
+      SUPABASE_KEY: SUPABASE_ANON_KEY,
+      SITE_URL: APP_URL,
+      NITRO_PORT: String(APP_PORT),
+      PORT: String(APP_PORT),
+    },
   },
 })
