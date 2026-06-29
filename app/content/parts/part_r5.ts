@@ -164,10 +164,15 @@ export const partR5: Topic[] = [
     questions: [
       {
         type: 'abcd',
-        q: 'Jak nazywa się funkcja rekreacji pozwalająca na emocjonalne oczyszczenie i odreagowanie napięć?',
-        options: ['Funkcja integracyjna', 'Funkcja negocjacyjna', 'Funkcja motywacyjna', 'Funkcja katartyczna'],
-        correct: 3,
-        explain: 'Funkcja katartyczna (oczyszczająca) pozwala na odreagowanie napięć i stresów oraz uwolnienie negatywnych emocji.'
+        q: 'W jaki sposób funkcja katartyczna rekreacji wspiera rozwiązywanie konfliktów społecznych?',
+        options: [
+          'Redukuje stres i napięcie towarzyszące konfliktom poprzez odreagowanie emocji',
+          'Eliminuje konieczność komunikacji między stronami sporu',
+          'Zastępuje negocjacje rywalizacją sportową',
+          'Gwarantuje wygraną jednej ze stron konfliktu'
+        ],
+        correct: 0,
+        explain: 'Funkcja katartyczna pozwala odreagować napięcie i stres towarzyszące konfliktom, co — obok poprawy komunikacji i budowania relacji — ułatwia ich rozwiązywanie.'
       },
       {
         type: 'tf',

@@ -104,9 +104,9 @@ export const partR6: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Zalecana ilość snu wskazana wśród zachowań prozdrowotnych to 7–8 godzin.',
-        correct: true,
-        explain: 'Wśród zachowań prozdrowotnych wymienia się wystarczającą ilość snu, czyli 7–8 godzin.'
+        q: 'Zbyt długie przesiadywanie z telefonem, komputerem lub telewizorem zaliczane jest do zachowań prozdrowotnych.',
+        correct: false,
+        explain: 'To zachowanie ryzykowne; do zachowań prozdrowotnych należą m.in. aktywność fizyczna, zdrowe odżywianie, unikanie używek i wystarczająca ilość snu (7–8 h).'
       },
       {
         type: 'tf',

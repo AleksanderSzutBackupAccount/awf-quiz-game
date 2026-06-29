@@ -432,15 +432,15 @@ export const partP1: Topic[] = [
     questions: [
       {
         type: 'abcd',
-        q: 'Co charakteryzuje miękkie formy aktywności turystyki przygodowej?',
+        q: 'Czym charakteryzuje się freediving jako odmiana nurkowania?',
         options: [
-          'Wysoki stopień ryzyka i konieczność zaawansowanych umiejętności',
-          'Obowiązkowy udział instruktora z licencją',
-          'Wyłącznie aktywności wysokogórskie',
-          'Niski stopień ryzyka i dostępność dla osób bez specjalnego przygotowania'
+          'Nurkowanie ze sprzętem powietrznym w jaskiniach',
+          'Nurkowanie na zatrzymanym oddechu, bez aparatu oddechowego',
+          'Pływanie z maską wyłącznie przy powierzchni wody (snorkeling)',
+          'Nurkowanie dozwolone tylko przy wrakach statków'
         ],
-        correct: 3,
-        explain: 'Miękkie formy charakteryzują się niskim stopniem ryzyka i są dostępne dla osób bez specjalnych umiejętności czy przygotowania.'
+        correct: 1,
+        explain: 'Freediving to nurkowanie na zatrzymanym oddechu, bez aparatu oddechowego; inne odmiany nurkowania to m.in. snorkeling, płetwonurkowanie, wrakowe i jaskiniowe.'
       },
       {
         type: 'abcd',

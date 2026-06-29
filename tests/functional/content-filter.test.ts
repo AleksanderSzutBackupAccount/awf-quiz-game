@@ -34,17 +34,17 @@ describe('useContent.topicsBySpec', () => {
     const rek = topicsBySpec('rekreacja')
     const tracks = new Set(rek.map((t) => t.track))
     expect(tracks).toEqual(new Set(['wszyscy', 'rekreacja']))
-    // 52 shared + 30 rekreacja
-    expect(rek.length).toBe(82)
+    // 55 shared + 30 rekreacja
+    expect(rek.length).toBe(85)
     expect(rek.some((t) => t.track === 'przygodowa')).toBe(false)
     expect(rek.some((t) => t.track === 'hotelarstwo')).toBe(false)
   })
 
   it('gives each specialization its shared base plus its own topics', () => {
     const { topicsBySpec } = useContent()
-    expect(topicsBySpec('hotelarstwo').length).toBe(57) // 52 + 5
-    expect(topicsBySpec('przygodowa').length).toBe(81) // 52 + 29
-    expect(topicsBySpec('rekreacja').length).toBe(82) // 52 + 30
+    expect(topicsBySpec('hotelarstwo').length).toBe(90) // 55 + 35
+    expect(topicsBySpec('przygodowa').length).toBe(84) // 55 + 29
+    expect(topicsBySpec('rekreacja').length).toBe(85) // 55 + 30
   })
 
   it('sorts topics by number', () => {

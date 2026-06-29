@@ -424,7 +424,7 @@ export const partC5: Topic[] = [
     id: 'style-historyczne-zabytki',
     track: 'wszyscy',
     category: 'historia',
-    number: 59,
+    number: 58,
     title: 'Rozwój stylów historycznych na zabytkach Poznania (Trakt Królewsko-Cesarski)',
     summary: 'Trakt Królewsko-Cesarski w Poznaniu to przestrzenny zapis ewolucji stylów: od architektury przedromańskiej i gotyku po renesans, barok, klasycyzm, historyzm i modernizm.',
     wiki: [
@@ -479,7 +479,7 @@ export const partC5: Topic[] = [
     id: 'planowanie-przestrzenne',
     track: 'wszyscy',
     category: 'historia',
-    number: 58,
+    number: 59,
     title: 'System planowania przestrzennego w Polsce',
     summary: 'To trójstopniowy, hierarchiczny system kształtowania przestrzeni dla ochrony ładu przestrzennego i zrównoważonego rozwoju; kluczowy jest poziom gminny i władztwo planistyczne.',
     wiki: [

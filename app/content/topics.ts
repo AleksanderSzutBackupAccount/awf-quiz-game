@@ -5,6 +5,7 @@ import { partC3 } from './parts/part_c3'
 import { partC4 } from './parts/part_c4'
 import { partC5 } from './parts/part_c5'
 import { partH1 } from './parts/part_h1'
+import { partH2 } from './parts/part_h2'
 import { partP1 } from './parts/part_p1'
 import { partP2 } from './parts/part_p2'
 import { partP3 } from './parts/part_p3'
@@ -14,6 +15,7 @@ import { partR3 } from './parts/part_r3'
 import { partR4 } from './parts/part_r4'
 import { partR5 } from './parts/part_r5'
 import { partR6 } from './parts/part_r6'
+import { partW1 } from './parts/part_w1'
 
 /**
  * Treść zagadnień opracowana na podstawie materiałów źródłowych z folderu `baza/`.
@@ -130,16 +132,16 @@ const core: Topic[] = [
     questions: [
       {
         type: 'abcd',
-        q: 'Które trzy potrzeby psychologiczne wskazuje teoria autodeterminacji Ryana i Deciego?',
+        q: 'Motywacja o charakterze estetycznym w aktywności rekreacyjno-turystycznej to przede wszystkim:',
         options: [
-          'Fizjologiczne, bezpieczeństwa, uznania',
-          'Regeneracja, kompensacja, kreacja',
-          'Poznawcza, estetyczna, duchowa',
-          'Autonomia, kompetencja, relacje z innymi',
+          'chęć spędzania czasu z bliskimi',
+          'potrzeba kontaktu z przyrodą i pięknym krajobrazem',
+          'poprawa kondycji fizycznej i odreagowanie stresu',
+          'zainteresowanie historią danego miejsca',
         ],
-        correct: 3,
+        correct: 1,
         explain:
-          'Teoria autodeterminacji opiera się na autonomii, kompetencji i relacjach z innymi.',
+          'Motyw estetyczny to potrzeba kontaktu z przyrodą i pięknym krajobrazem; pozostałe odpowiadają motywom rodzinnemu, zdrowotnemu i historycznemu.',
       },
       {
         type: 'abcd',
@@ -151,10 +153,10 @@ const core: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'W piramidzie Maslowa potrzeby fizjologiczne znajdują się na najwyższym poziomie.',
-        correct: false,
+        q: 'W piramidzie Maslowa wakacyjny odpoczynek i sen zaspokajają przede wszystkim potrzeby fizjologiczne.',
+        correct: true,
         explain:
-          'Na szczycie piramidy jest samorealizacja, a potrzeby fizjologiczne stanowią jej podstawę (najniższy poziom).',
+          'Potrzeby fizjologiczne to m.in. odpoczynek, sen i jedzenie — wakacje zaspokajają właśnie ten podstawowy poziom piramidy.',
       },
       {
         type: 'flash',
@@ -890,6 +892,7 @@ export const topics: Topic[] = [
   ...partC4,
   ...partC5,
   ...partH1,
+  ...partH2,
   ...partP1,
   ...partP2,
   ...partP3,
@@ -899,4 +902,5 @@ export const topics: Topic[] = [
   ...partR4,
   ...partR5,
   ...partR6,
+  ...partW1,
 ]

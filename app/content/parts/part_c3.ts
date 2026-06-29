@@ -367,9 +367,9 @@ export const partC3: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Badania wtórne polegają na samodzielnym zbieraniu nowych danych w terenie, np. przez ankiety.',
-        correct: false,
-        explain: 'To opis badań pierwotnych; badania wtórne opierają się na już istniejących danych, raportach i statystykach.'
+        q: 'Główną wadą badań ilościowych jest to, że nie ukazują motywów ani emocji turystów.',
+        correct: true,
+        explain: 'Badania ilościowe dostarczają danych liczbowych do analizy statystycznej, ale nie wyjaśniają motywów i emocji — te poznaje się w badaniach jakościowych (wywiady pogłębione, grupy fokusowe).'
       },
       {
         type: 'flash',

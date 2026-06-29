@@ -13,6 +13,7 @@ export const categories: Category[] = [
   { id: 'hotelarstwo', name: 'Hotelarstwo i biuro podróży', icon: '🏨' },
   { id: 'outdoor', name: 'Outdoor i edukacja przygodowa', icon: '🏕️' },
   { id: 'rekreacja-spec', name: 'Rekreacja (specjalność)', icon: '🤸' },
+  { id: 'hotelarstwo-spec', name: 'Hotelarstwo i gastronomia (specjalność)', icon: '🛎️' },
 ]
 
 export const getCategory = (id: string) => categories.find((c) => c.id === id)

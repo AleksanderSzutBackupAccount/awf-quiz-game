@@ -413,8 +413,8 @@ export const partP2: Topic[] = [
       },
       {
         type: 'flash',
-        front: 'Czym jest etnocentryzm?',
-        back: 'Postawa i przekonanie, ze wlasne etno (spoleczenstwo) zajmuje centralne, uprzywilejowane miejsce w swiecie, a innych ocenia sie przez pryzmat wlasnych przekonan.'
+        front: 'Na czym polega zjawisko "ludzkiego zoo" (kanibalizm turystyczny)?',
+        back: 'To przedmiotowe traktowanie przedstawicieli innej kultury — jak atrakcji turystycznej do ogladania — bez poszanowania ich podmiotowosci i godnosci.'
       }
     ]
   },

@@ -358,9 +358,9 @@ export const partC1: Topic[] = [
       },
       {
         type: 'tf',
-        q: 'Regularny trening prowadzi do spadku tętna spoczynkowego.',
+        q: 'Glikoliza beztlenowa zachodzi bez udziału tlenu, a jej produktem jest mleczan.',
         correct: true,
-        explain: 'Adaptacja układu krążenia obejmuje spadek tętna spoczynkowego - serce bije wolniej i bardziej efektywnie.',
+        explain: 'Glikoliza beztlenowa rozkłada glukozę bez tlenu (energia na wysiłki od kilkudziesięciu sekund do kilku minut), a jej produktem ubocznym jest mleczan.',
       },
       {
         type: 'flash',

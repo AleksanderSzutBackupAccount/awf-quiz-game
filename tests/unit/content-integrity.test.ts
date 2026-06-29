@@ -116,8 +116,8 @@ describe('content: specializations & per-track counts', () => {
       acc[t.track] = (acc[t.track] ?? 0) + 1
       return acc
     }, {})
-    expect(byTrack.wszyscy).toBe(52)
-    expect(byTrack.hotelarstwo).toBe(5)
+    expect(byTrack.wszyscy).toBe(55)
+    expect(byTrack.hotelarstwo).toBe(35)
     expect(byTrack.przygodowa).toBe(29)
     expect(byTrack.rekreacja).toBe(30)
   })
